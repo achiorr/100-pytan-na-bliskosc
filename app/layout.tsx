@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import FacebookPixel from "@/components/FacebookPixel";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -29,6 +30,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen bg-krem font-sans text-granat antialiased selection:bg-burgund selection:text-krem">
         <FacebookPixel />
+        <GoogleAnalytics />
         {children}
       </body>
     </html>
