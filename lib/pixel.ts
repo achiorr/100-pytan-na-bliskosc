@@ -1,5 +1,5 @@
 export const FB_PIXEL_ID = process.env.NEXT_PUBLIC_FB_PIXEL_ID || "932014270181668";
-export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID;
+export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || "G-QBPYKKNWL8";
 
 declare global {
   interface Window {

@@ -1,6 +1,6 @@
 import Script from "next/script";
 
-export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID;
+export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || "G-QBPYKKNWL8";
 
 export default function GoogleAnalytics({ gaId }: { gaId?: string }) {
   const id = gaId || GA_MEASUREMENT_ID;
