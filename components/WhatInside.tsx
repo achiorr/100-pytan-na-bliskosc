@@ -1,125 +1,152 @@
-import { MessageCircle, Heart, Sparkles, Coffee, Smile, Compass, Users, History, ThumbsUp, Moon } from "lucide-react";
+import {
+  Sparkles,
+  Users,
+  Heart,
+  Coffee,
+  ShieldCheck,
+  Moon,
+  Flame,
+} from "lucide-react";
 
 export default function WhatInside() {
-  const categories = [
+  const decks = [
     {
       num: "01",
-      title: "Codzienność i dobre chwile",
-      desc: "O tym, co dzieje się tu i teraz.",
-      sample: "„Gdyby ten tydzień miał swój kolor — jaki by był?”",
-      icon: Coffee,
+      title: "Na rozgrzewkę",
+      desc: "Lekki start: dobre wspomnienia, drobne radości i odrobina zabawy.",
+      sample: "„Jaka niespodzianka ode mnie ucieszyła cię najbardziej?”",
+      icon: Sparkles,
+      img: "/images/karty-tytulowe/01-Na-rozgrzewke-tytul.jpg",
     },
     {
       num: "02",
-      title: "Troska o siebie i małe rytuały",
-      desc: "O tym, co Was regeneruje i cieszy.",
-      sample: "„Który zwykły moment dnia jest dla Ciebie małym oddechem?”",
-      icon: Sparkles,
+      title: "My",
+      desc: "O tym, kim jesteśmy jako para i skąd przychodzimy.",
+      sample: "„Jak wyglądały niedziele albo wolne dni w twoim domu rodzinnym?”",
+      icon: Users,
+      img: "/images/karty-tytulowe/02-My-tytul.jpg",
     },
     {
       num: "03",
-      title: "Śmiech i lekkość",
-      desc: "O tym, co rozluźnia i rozśmiesza.",
-      sample: "„Gdybyśmy mieli wymyślić najgłupsze wspólne hobby — co by to było?”",
-      icon: Smile,
+      title: "Emocje i bliskość",
+      desc: "O uczuciach, potrzebach i tym, co dzieje się między nami.",
+      sample: "„Jakiej formy miłości najbardziej potrzebujesz ode mnie?”",
+      icon: Heart,
+      img: "/images/karty-tytulowe/03-Emocje-i-bliskosc-tytul.jpg",
     },
     {
       num: "04",
-      title: "Ciekawość i rozwój",
-      desc: "O tym, co Was porusza i inspiruje.",
-      sample: "„Co potrafi Cię zaciekawić tak, że tracisz poczucie czasu?”",
-      icon: Compass,
+      title: "Codzienność",
+      desc: "O wspólnym życiu na co dzień: obowiązkach, rytmach, wsparciu.",
+      sample: "„Kiedy czujesz, że twoja praca dla nas jest naprawdę widziana?”",
+      icon: Coffee,
+      img: "/images/karty-tytulowe/04-Codziennosc-tytul.jpg",
     },
     {
       num: "05",
-      title: "My jako para",
-      desc: "O tym, co tworzycie razem.",
-      sample: "„Co robimy razem, co zawsze nas do siebie zbliża?”",
-      icon: Users,
+      title: "Fundamenty",
+      desc: "O wartościach, sensie i tym, co nas naprawdę łączy.",
+      sample: "„Jaki sens ma dla ciebie to, że nasze drogi się połączyły?”",
+      icon: ShieldCheck,
+      img: "/images/karty-tytulowe/05-Fundamenty-tytul.jpg",
     },
     {
       num: "06",
-      title: "Wspomnienia",
-      desc: "O chwilach, do których dobrze wracać.",
-      sample: "„Który nasz zupełnie zwykły wieczór wspominasz nieoczekiwanie ciepło?”",
-      icon: History,
+      title: "Marzenia i przyszłość",
+      desc: "O tym, co chcemy razem zbudować.",
+      sample: "„Co chcesz razem ze mną zbudować?”",
+      icon: Moon,
+      img: "/images/karty-tytulowe/06-Marzenia-i-przyszlosc-tytul.jpg",
     },
     {
       num: "07",
-      title: "Upodobania i ulubione",
-      desc: "O tym, co po prostu lubicie.",
-      sample: "„Jaka piosenka zawsze poprawia Ci nastrój?”",
-      icon: MessageCircle,
-    },
-    {
-      num: "08",
-      title: "Wdzięczność i docenianie",
-      desc: "O tym, co łatwo przeoczyć, a warto zauważyć.",
-      sample: "„Co doceniasz w naszej codzienności, a rzadko o tym mówimy?”",
-      icon: ThumbsUp,
-    },
-    {
-      num: "09",
-      title: "Marzenia i przygody",
-      desc: "O tym, co dopiero przed Wami.",
-      sample: "„O jakim małym marzeniu myślisz ostatnio najczęściej?”",
-      icon: Moon,
-    },
-    {
-      num: "10",
-      title: "Czułość i bliskość",
-      desc: "O tym, jak okazujecie sobie miłość.",
-      sample: "„Jaki gest z mojej strony sprawia, że czujesz się zaopiekowany/a?”",
-      icon: Heart,
+      title: "Pożądanie i namiętność",
+      desc: "O bliskości, pragnieniach i intymności.",
+      sample: "„O czym marzysz, kiedy myślisz o wspólnej nocy bez pośpiechu?”",
+      icon: Flame,
+      img: "/images/karty-tytulowe/07-Pozadanie-i-namietnosc-tytul.jpg",
     },
   ];
 
   return (
-    <section className="bg-kremDim py-14 sm:py-20 border-b border-granat/10">
+    <section className="bg-krem py-14 sm:py-20 border-b border-granat/10 overflow-hidden">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-12">
+        
+        {/* 1. Nagłówek sekcji */}
+        <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
           <span className="text-burgund uppercase tracking-wider text-xs sm:text-sm font-semibold mb-2.5 block">
-            ZAWARTOŚĆ PRZEWODNIKA
+            ZAWARTOŚĆ ZESTAWU
           </span>
           <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-granat leading-tight">
-            10 obszarów rozmów — 100 konkretnych pytań
+            Co jest w poszczególnych taliach
           </h2>
           <p className="text-sm sm:text-base text-granat/80 mt-3.5 leading-relaxed">
-            Pytania podzieliliśmy na 10 tematów, abyście mogli dopasować rozmowę do Waszego nastroju, pory dnia i energii.
+            Każda talia to inny temat i inna głębia — od lekkiej rozgrzewki do wykorzystania na rozmowę w samochodzie, po pytania o wartości i namiętność na wieczorne rozmowy.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-5">
-          {categories.map((cat, idx) => {
-            const Icon = cat.icon;
+        {/* 2. Wspólna wizualizacja wszystkich 7 talii */}
+        <div className="mb-10 sm:mb-14">
+          <div className="flex gap-3 sm:gap-3.5 md:gap-4 overflow-x-auto pb-4 pt-1 px-1 sm:px-0 snap-x snap-mandatory no-scrollbar justify-start md:justify-center items-center">
+            {decks.map((deck) => (
+              <div
+                key={deck.num}
+                className="w-[120px] sm:w-[130px] md:w-[125px] lg:w-[132px] shrink-0 snap-center rounded-xl sm:rounded-2xl border border-granat/15 bg-krem shadow-sm hover:shadow-md hover:-translate-y-1.5 transition-all duration-300 overflow-hidden group cursor-default"
+              >
+                <div className="aspect-[9/16] w-full overflow-hidden bg-kremDim">
+                  <img
+                    src={deck.img}
+                    alt={`Talia ${deck.num} — ${deck.title}`}
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+          <p className="text-[11px] text-granat/50 text-center mt-1 md:hidden font-medium">
+            👉 Przesuń w bok, aby zobaczyć okładki wszystkich 7 talii
+          </p>
+        </div>
+
+        {/* 3. Kompaktowe kafelki z opisami talii (wygodne na mobile i desktopie) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+          {decks.map((deck) => {
+            const Icon = deck.icon;
             return (
               <div
-                key={idx}
-                className="rounded-2xl border border-granat/10 bg-krem p-5 sm:p-6 shadow-sm flex flex-col justify-between hover:border-burgund/30 transition-colors"
+                key={deck.num}
+                className="rounded-2xl border border-granat/10 bg-kremDim p-5 sm:p-6 shadow-sm flex flex-col justify-between hover:border-burgund/30 transition-colors group"
               >
                 <div>
                   <div className="flex items-center justify-between gap-3 mb-2.5">
                     <div className="flex items-center gap-2.5">
                       <span className="text-xs font-mono font-bold text-burgund bg-roz px-2 py-0.5 rounded-md">
-                        {cat.num}
+                        {deck.num}
                       </span>
                       <h3 className="font-heading font-bold text-base sm:text-lg text-granat">
-                        {cat.title}
+                        {deck.title}
                       </h3>
                     </div>
-                    <Icon className="w-4 h-4 text-burgund/60 shrink-0" />
+                    <Icon className="w-4 h-4 text-burgund/60 shrink-0 group-hover:text-burgund transition-colors" />
                   </div>
-                  <p className="text-xs sm:text-sm text-granat/70 mb-3">
-                    {cat.desc}
+
+                  <p className="text-xs sm:text-sm text-granat/70 mb-3 leading-relaxed">
+                    {deck.desc}
                   </p>
                 </div>
+
                 <div className="pt-3 border-t border-granat/5 text-xs italic text-granat/80">
-                  Przykładowe pytanie: <span className="font-normal text-burgund">{cat.sample}</span>
+                  Przykładowe pytanie:{" "}
+                  <span className="font-normal text-burgund">
+                    {deck.sample}
+                  </span>
                 </div>
               </div>
             );
           })}
         </div>
+
       </div>
     </section>
   );

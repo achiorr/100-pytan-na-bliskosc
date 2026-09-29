@@ -46,3 +46,27 @@ export const trackLead = (params?: LeadParams) => {
     });
   }
 };
+
+export const trackInitiateCheckout = (params?: { value?: number; currency?: string; content_name?: string }) => {
+  const contentName = params?.content_name ?? "100 pytań na bliskość – wersja wideo";
+  const value = params?.value ?? 19;
+  const currency = params?.currency ?? "PLN";
+
+  // 1. Meta Pixel
+  if (typeof window !== "undefined" && typeof window.fbq === "function") {
+    window.fbq("track", "InitiateCheckout", {
+      content_name: contentName,
+      value: value,
+      currency: currency,
+    });
+  }
+
+  // 2. Google Analytics 4
+  if (typeof window !== "undefined" && typeof window.gtag === "function") {
+    window.gtag("event", "begin_checkout", {
+      items: [{ item_name: contentName, price: value }],
+      value: value,
+      currency: currency,
+    });
+  }
+};

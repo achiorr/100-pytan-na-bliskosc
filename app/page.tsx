@@ -1,37 +1,41 @@
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import NewsletterHero from "@/components/NewsletterHero";
-import WhatInside from "@/components/WhatInside";
 import HowToUse from "@/components/HowToUse";
+import WhatInside from "@/components/WhatInside";
 import AboutAuthors from "@/components/AboutAuthors";
+import OfferSection from "@/components/OfferSection";
 import BottomCta from "@/components/BottomCta";
 import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
     <main className="w-full min-h-screen flex flex-col">
-      {/* 1. Górny pasek */}
+      {/* 1. Górny pasek (announcement bar) */}
       <TopBar />
 
-      {/* 2. Nawigacja z logo */}
+      {/* 2. Nawigacja z logo i CTA */}
       <Navbar />
 
-      {/* 3. Główna sekcja z pobraniem 100 pytań i okładką PDF */}
+      {/* 3. Główna sekcja Hero z darmowym odtwarzaczem "Na rozgrzewkę" i CTA 19 zł */}
       <NewsletterHero />
 
-      {/* 4. 10 kategorii pytań (co w środku) */}
-      <WhatInside />
-
-      {/* 5. 5 prostych zasad jak korzystać */}
+      {/* 4. 5 prostych zasad jak korzystać z filmów */}
       <HowToUse />
 
-      {/* 6. Krótko o autorach (@szczesliwi_razem) */}
+      {/* 5. 7 talii — 700 pytań na bliskość (co w środku) */}
+      <WhatInside />
+
+      {/* 6. O autorach (@szczesliwi_razem) */}
       <AboutAuthors />
 
-      {/* 7. Dolne CTA */}
+      {/* 7. Pełna sekcja oferty (cena 19 zł + co w środku + bonusy) */}
+      <OfferSection />
+
+      {/* 8. Końcowe CTA */}
       <BottomCta />
 
-      {/* 8. Stopka */}
+      {/* 9. Stopka */}
       <Footer />
     </main>
   );

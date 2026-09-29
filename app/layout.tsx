@@ -4,9 +4,9 @@ import GoogleAnalytics from "@/components/GoogleAnalytics";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "100 pytań na bliskość – rozmowy, które zbliżają | Szczęśliwi Razem",
+  title: "Stopklatki — Pytania, które zatrzymują | Szczęśliwi Razem",
   description:
-    "Pobierz bezpłatny zestaw 100 pytań dla par. Proste pytania, które pomagają zatrzymać się na chwilę, spojrzeć na siebie z ciekawością i rozmawiać o tym, co naprawdę ważne.",
+    "Wygodne zestawy pytań, które będą prowadzić do głębokich rozmów. 7 filmów z pytaniami dla par.",
 };
 
 export default function RootLayout({

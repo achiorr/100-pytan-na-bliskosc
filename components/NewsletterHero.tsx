@@ -1,96 +1,156 @@
-import NewsletterForm from "./NewsletterForm";
-import { FileDown, CheckCircle2 } from "lucide-react";
+"use client";
+
+import { CHECKOUT_URL, SAMPLE_VIDEO_URL, SAMPLE_VIDEO_POSTER } from "@/lib/constants";
+import { trackInitiateCheckout } from "@/lib/pixel";
 
 export default function NewsletterHero() {
+  const cardsLeft = [
+    {
+      id: "04",
+      title: "Codzienność",
+      img: "/images/karty-tytulowe/04-Codziennosc-tytul.jpg",
+      className:
+        "left-1/2 top-1/2 -translate-x-[122%] sm:-translate-x-[118%] -translate-y-[47%] -rotate-[12deg] z-10 scale-[0.84] opacity-90",
+    },
+    {
+      id: "03",
+      title: "Emocje i bliskość",
+      img: "/images/karty-tytulowe/03-Emocje-i-bliskosc-tytul.jpg",
+      className:
+        "left-1/2 top-1/2 -translate-x-[94%] sm:-translate-x-[90%] -translate-y-[48.5%] -rotate-[7deg] z-15 scale-[0.90] opacity-95",
+    },
+    {
+      id: "02",
+      title: "My",
+      img: "/images/karty-tytulowe/02-My-tytul.jpg",
+      className:
+        "left-1/2 top-1/2 -translate-x-[66%] sm:-translate-x-[62%] -translate-y-[49.5%] -rotate-[3deg] z-20 scale-[0.96]",
+    },
+  ];
+
+  const cardsRight = [
+    {
+      id: "05",
+      title: "Fundamenty",
+      img: "/images/karty-tytulowe/05-Fundamenty-tytul.jpg",
+      className:
+        "left-1/2 top-1/2 -translate-x-[34%] sm:-translate-x-[38%] -translate-y-[49.5%] rotate-[3deg] z-20 scale-[0.96]",
+    },
+    {
+      id: "06",
+      title: "Marzenia i przyszłość",
+      img: "/images/karty-tytulowe/06-Marzenia-i-przyszlosc-tytul.jpg",
+      className:
+        "left-1/2 top-1/2 -translate-x-[6%] sm:-translate-x-[10%] -translate-y-[48.5%] rotate-[7deg] z-15 scale-[0.90] opacity-95",
+    },
+    {
+      id: "07",
+      title: "Pożądanie i namiętność",
+      img: "/images/karty-tytulowe/07-Pozadanie-i-namietnosc-tytul.jpg",
+      className:
+        "left-1/2 top-1/2 translate-x-[22%] sm:translate-x-[18%] -translate-y-[47%] rotate-[12deg] z-10 scale-[0.84] opacity-90",
+    },
+  ];
+
   return (
-    <section className="bg-krem py-10 sm:py-16 md:py-20 border-b border-granat/10">
-      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          {/* Lewa kolumna: Treść i formularz */}
-          <div className="lg:col-span-7 flex flex-col items-start">
+    <section className="relative bg-krem py-10 sm:py-16 md:py-20 border-b border-granat/10 overflow-hidden">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+          
+          {/* Lewa kolumna: Treść i CTA */}
+          <div className="lg:col-span-6 flex flex-col items-start z-10">
+            
             {/* Nagłówek H1 */}
-            <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-granat leading-[1.18] mb-3">
-              100 pytań na bliskość
+            <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-granat leading-[1.1] mb-2">
+              Stopklatki
+              <span className="block font-heading italic text-2xl sm:text-3xl md:text-4xl text-burgund font-normal mt-1.5 sm:mt-2">
+                Zrób pauzę na dobrą rozmowę
+              </span>
             </h1>
-            <p className="font-heading italic text-xl sm:text-2xl text-burgund mb-5">
-              rozmowy, które zbliżają
-            </p>
 
-            {/* Podtytuł */}
-            <p className="font-sans text-base sm:text-lg text-granat/85 leading-relaxed mb-6">
-              Sto prostych pytań, które pomagają zatrzymać się na chwilę, spojrzeć na siebie z ciekawością i rozmawiać o tym, co naprawdę ważne.
-            </p>
-
-            {/* Korzyść */}
-            <div className="flex items-center gap-1.5 text-xs sm:text-sm font-medium text-granat/80 mb-7">
-              <CheckCircle2 className="w-4 h-4 text-burgund" />
-              <span>Gotowy plik PDF na telefon</span>
+            {/* Wyjaśnienie / Lead */}
+            <div className="font-sans text-sm sm:text-base text-granat/85 leading-relaxed mt-4 mb-8 space-y-3">
+              <p>
+                Na co dzień rozmawiacie o zakupach, grafikach i tym, kto odbiera paczkę. Stopklatki pomagają wrócić do rozmów o was: o tym, co was cieszy, czego potrzebujecie i o czym marzycie.
+              </p>
+              <p>
+                Włączcie film, zatrzymajcie go w dowolnym momencie i odpowiedzcie na pytanie, które się pojawi. Tyle wystarczy, żeby znów się sobą zaciekawić.
+              </p>
             </div>
 
-            {/* Formularz zapisu */}
-            <NewsletterForm
-              buttonText="Pobieram 100 pytań (PDF)"
-              source="hero_rolka"
-            />
+            {/* Główne CTA */}
+            <div className="w-full sm:w-auto">
+              <a
+                href={CHECKOUT_URL}
+                onClick={() => trackInitiateCheckout()}
+                className="w-full sm:w-auto inline-flex items-center justify-center rounded-2xl bg-burgund px-8 py-4 text-base sm:text-lg font-semibold text-krem shadow-lg hover:brightness-90 hover:shadow-xl transition-all duration-200 group"
+              >
+                Kupuję cały zestaw
+                <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+              </a>
+            </div>
+
           </div>
 
-          {/* Prawa kolumna: Zestawienie okładki PDF + Zdjęcie Uli i Krzyśka */}
-          <div className="lg:col-span-5 w-full mt-4 lg:mt-0">
-            <div className="relative mx-auto max-w-sm sm:max-w-md lg:max-w-none flex items-center justify-center py-4">
+          {/* Prawa kolumna: Wachlarz 7 talii ze środkowym wideo "Na rozgrzewkę" */}
+          <div className="lg:col-span-6 w-full mt-4 lg:mt-0 flex flex-col items-center">
+            
+            {/* Kontener sceny wachlarza */}
+            <div className="relative w-full max-w-[340px] sm:max-w-[420px] md:max-w-[460px] h-[460px] sm:h-[520px] flex items-center justify-center select-none">
               
-              {/* Główna karta / Okładka PDF */}
-              <div className="relative w-[58%] sm:w-[56%] rounded-2xl border-2 border-granat/15 bg-[#FEFCF7] p-5 sm:p-7 shadow-xl text-center flex flex-col justify-between min-h-[370px] sm:min-h-[410px] -rotate-2 hover:rotate-0 transition-transform duration-300 z-10">
-                <div>
-                  <span className="text-[10px] font-bold tracking-[0.22em] text-burgund uppercase block">
-                    SZCZĘŚLIWI RAZEM
-                  </span>
-                  <div className="w-6 h-0.5 bg-burgund mx-auto mt-1.5" />
-                </div>
-
-                <div className="my-auto py-3">
-                  <div className="w-2 h-2 rounded-full bg-burgund mx-auto mb-3 opacity-75" />
-                  <h2 className="font-heading text-2xl sm:text-3xl font-bold text-granat leading-tight mb-1.5">
-                    100 pytań<br />na bliskość
-                  </h2>
-                  <p className="font-heading italic text-sm sm:text-base text-burgund">
-                    rozmowy, które zbliżają
-                  </p>
-                  <p className="text-[11px] text-granat/60 mt-3 leading-relaxed">
-                    Dla Was dwojga · Format PDF
-                  </p>
-                </div>
-
-                <div className="pt-3 border-t border-granat/10 flex items-center justify-between text-[10px] text-granat/60">
-                  <span className="flex items-center gap-1 font-semibold text-burgund">
-                    <FileDown className="w-3.5 h-3.5" /> Pobierz PDF
-                  </span>
-                  <span>100 pytań</span>
-                </div>
-              </div>
-
-              {/* Ramka ze zdjęciem Uli i Krzyśka obok okładki */}
-              <div className="relative w-[48%] sm:w-[46%] -ml-10 sm:-ml-12 mt-10 sm:mt-14 z-20">
-                <div className="rounded-2xl border-2 border-granat/20 bg-krem p-1.5 shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-300">
+              {/* Karty po LEWEJ stronie w tle (Talia 04, 03, 02) */}
+              {cardsLeft.map((card) => (
+                <div
+                  key={card.id}
+                  className={`absolute w-[180px] sm:w-[220px] md:w-[230px] aspect-[9/16] rounded-2xl sm:rounded-3xl border-2 border-granat/15 bg-krem shadow-xl overflow-hidden pointer-events-none transition-all duration-300 ${card.className}`}
+                >
                   <img
-                    src="/images/ula-krzysiek-lead-magnet.jpg"
-                    alt="Ula i Krzysiek Głowaccy"
-                    width={600}
-                    height={800}
-                    className="w-full aspect-[3/4] rounded-xl object-cover object-top shadow-sm"
+                    src={card.img}
+                    alt={card.title}
+                    className="w-full h-full object-cover object-center"
+                    loading="lazy"
                   />
-                  <div className="px-2 py-2 text-center">
-                    <p className="font-heading font-bold text-xs text-granat leading-snug">
-                      Ula i Krzysiek
-                    </p>
-                    <p className="text-[10px] text-burgund font-medium">
-                      @szczesliwi_razem
-                    </p>
-                  </div>
                 </div>
+              ))}
+
+              {/* Karty po PRAWEJ stronie w tle (Talia 05, 06, 07) */}
+              {cardsRight.map((card) => (
+                <div
+                  key={card.id}
+                  className={`absolute w-[180px] sm:w-[220px] md:w-[230px] aspect-[9/16] rounded-2xl sm:rounded-3xl border-2 border-granat/15 bg-krem shadow-xl overflow-hidden pointer-events-none transition-all duration-300 ${card.className}`}
+                >
+                  <img
+                    src={card.img}
+                    alt={card.title}
+                    className="w-full h-full object-cover object-center"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+
+              {/* ŚRODKOWA TALIA (01 · Na rozgrzewkę) — Pełny aktywny odtwarzacz wideo na samej górze */}
+              <div className="relative w-[210px] sm:w-[250px] md:w-[260px] aspect-[9/16] rounded-2xl sm:rounded-3xl border-2 sm:border-[3px] border-granat/25 bg-granat shadow-2xl overflow-hidden z-30 ring-4 sm:ring-8 ring-krem/80">
+                <video
+                  controls
+                  playsInline
+                  preload="metadata"
+                  poster={SAMPLE_VIDEO_POSTER}
+                  className="w-full h-full object-cover"
+                >
+                  <source src={SAMPLE_VIDEO_URL} type="video/mp4" />
+                  Twoja przeglądarka nie obsługuje odtwarzacza wideo.
+                </video>
               </div>
 
             </div>
+
+            {/* Wskazówka pod wachlarzem */}
+            <p className="text-[11px] sm:text-xs text-granat/70 text-center mt-3 font-medium leading-relaxed max-w-sm">
+              👆 <strong>Wypróbuj teraz:</strong> Włącz środkowe wideo, zatrzymaj w losowej sekundzie i zobacz wylosowane pytanie!
+            </p>
+
           </div>
+
         </div>
       </div>
     </section>
