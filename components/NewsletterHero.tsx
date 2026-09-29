@@ -93,11 +93,34 @@ export default function NewsletterHero() {
           </div>
 
           {/* Prawa kolumna: Wachlarz 7 talii ze środkowym wideo "Na rozgrzewkę" */}
-          <div className="lg:col-span-6 w-full mt-4 lg:mt-0 flex flex-col items-center">
+          <div className="lg:col-span-6 w-full mt-8 lg:mt-0 flex flex-col items-center">
             
             {/* Kontener sceny wachlarza */}
-            <div className="relative w-full max-w-[340px] sm:max-w-[420px] md:max-w-[460px] h-[460px] sm:h-[520px] flex items-center justify-center select-none">
+            <div className="relative w-full max-w-[340px] sm:max-w-[420px] md:max-w-[460px] h-[460px] sm:h-[520px] flex items-center justify-center select-none pt-4 sm:pt-6">
               
+              {/* Ręcznie rysowana strzałka "Kliknij i przetestuj" kierująca na wideo */}
+              <div className="absolute -top-10 sm:-top-11 right-2 sm:right-6 md:right-8 z-40 flex flex-col items-center pointer-events-none select-none">
+                <span className="font-handwriting text-xl sm:text-2xl font-bold text-burgund rotate-2 tracking-wide drop-shadow-xs whitespace-nowrap">
+                  Kliknij i przetestuj
+                </span>
+                <svg
+                  className="w-12 h-10 sm:w-14 sm:h-12 text-burgund stroke-current fill-none -mt-1 -mr-2"
+                  viewBox="0 0 70 50"
+                >
+                  <path
+                    d="M 52 6 Q 26 10 16 38"
+                    strokeWidth="2.8"
+                    strokeLinecap="round"
+                  />
+                  <path
+                    d="M 14 24 L 16 38 L 30 33"
+                    strokeWidth="2.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+
               {/* Karty po LEWEJ stronie w tle (Talia 04, 03, 02) */}
               {cardsLeft.map((card) => (
                 <div
