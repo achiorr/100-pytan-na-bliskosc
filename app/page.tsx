@@ -1,4 +1,3 @@
-import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import NewsletterHero from "@/components/NewsletterHero";
 import HowToUse from "@/components/HowToUse";
@@ -11,10 +10,7 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <main className="w-full min-h-screen flex flex-col">
-      {/* 1. Górny pasek (announcement bar) */}
-      <TopBar />
-
-      {/* 2. Nawigacja z logo i CTA */}
+      {/* 1. Nawigacja z logo i CTA */}
       <Navbar />
 
       {/* 3. Główna sekcja Hero z darmowym odtwarzaczem "Na rozgrzewkę" i CTA 19 zł */}
