@@ -65,10 +65,10 @@ export default function OfferSection() {
             PEŁEN ZESTAW
           </span>
           <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-granat leading-tight">
-            Wszystkie 7 filmów w jednym pakiecie
+            Wszystkie 7 talii w jednym pakiecie
           </h2>
           <p className="text-base sm:text-lg text-granat/80 mt-3.5 leading-relaxed">
-            Pobierz cały pakiet 700 pytań na bliskość i miej pod ręką gotowy sposób na dobrą rozmowę we dwoje.
+            Pobierz wszystkie 7 talii - w sumie 700 pytań na bliskość i miej pod ręką gotowy sposób na dobrą rozmowę we dwoje.
           </p>
         </div>
 
