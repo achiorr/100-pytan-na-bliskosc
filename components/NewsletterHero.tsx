@@ -1,18 +1,48 @@
 "use client";
 
-import { useState, useRef } from "react";
-import { Play } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
+import { Play, Pause, Volume2, VolumeX } from "lucide-react";
 import { CHECKOUT_URL, SAMPLE_VIDEO_URL, SAMPLE_VIDEO_POSTER } from "@/lib/constants";
 import { trackInitiateCheckout } from "@/lib/pixel";
 
 export default function NewsletterHero() {
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  const handleStartPlay = () => {
+  useEffect(() => {
     if (videoRef.current) {
-      videoRef.current.play();
-      setIsPlaying(true);
+      videoRef.current.muted = true;
+      const playPromise = videoRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            setIsPlaying(true);
+          })
+          .catch(() => {
+            setIsPlaying(false);
+          });
+      }
+    }
+  }, []);
+
+  const handleTogglePlay = () => {
+    if (videoRef.current) {
+      if (videoRef.current.paused) {
+        videoRef.current.play();
+        setIsPlaying(true);
+      } else {
+        videoRef.current.pause();
+        setIsPlaying(false);
+      }
+    }
+  };
+
+  const handleToggleMute = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setIsMuted(videoRef.current.muted);
     }
   };
 
@@ -175,51 +205,68 @@ export default function NewsletterHero() {
                 </div>
               ))}
 
-              {/* ŚRODKOWA TALIA (01 · Na rozgrzewkę) — Pełny aktywny odtwarzacz wideo na samej górze */}
-              <div className="relative w-[210px] sm:w-[250px] md:w-[260px] aspect-[9/16] rounded-2xl sm:rounded-3xl border-2 sm:border-[3px] border-granat/25 bg-granat shadow-2xl overflow-hidden z-30 ring-4 sm:ring-8 ring-krem/80 group">
+              {/* ŚRODKOWA TALIA (01 · Na rozgrzewkę) — Aktywny odtwarzacz z autostartem */}
+              <div 
+                onClick={handleTogglePlay}
+                className="relative w-[210px] sm:w-[250px] md:w-[260px] aspect-[9/16] rounded-2xl sm:rounded-3xl border-2 sm:border-[3px] border-granat/25 bg-granat shadow-2xl overflow-hidden z-30 ring-4 sm:ring-8 ring-krem/80 group cursor-pointer"
+                title="Kliknij, aby zatrzymać lub wznowić wideo"
+              >
                 <video
                   ref={videoRef}
-                  controls
+                  autoPlay
+                  muted
+                  loop
                   playsInline
-                  preload="metadata"
+                  preload="auto"
                   poster={SAMPLE_VIDEO_POSTER}
                   onPlay={() => setIsPlaying(true)}
                   onPause={() => setIsPlaying(false)}
-                  onEnded={() => setIsPlaying(false)}
-                  className="w-full h-full object-cover cursor-pointer"
+                  className="w-full h-full object-cover"
                 >
                   <source src={SAMPLE_VIDEO_URL} type="video/mp4" />
                   Twoja przeglądarka nie obsługuje odtwarzacza wideo.
                 </video>
 
-                {/* Nakładka z wyraźnym przyciskiem PLAY przed startem wideo */}
-                {!isPlaying && (
-                  <div
-                    onClick={handleStartPlay}
-                    className="absolute inset-0 bg-granat/40 hover:bg-granat/30 backdrop-blur-[1px] flex flex-col items-center justify-center cursor-pointer transition-all duration-200 z-10 p-4 select-none"
-                    role="button"
-                    tabIndex={0}
-                    aria-label="Włącz wideo testowe"
+                {/* Górna plakietka */}
+                <div className="absolute top-2.5 sm:top-3 inset-x-2.5 sm:inset-x-3 flex items-center justify-between pointer-events-none z-10">
+                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-granat/85 backdrop-blur-sm text-krem text-[10px] sm:text-[11px] font-bold shadow-md tracking-wider uppercase border border-krem/20">
+                    <span className={`w-2 h-2 rounded-full ${isPlaying ? "bg-emerald-400 animate-pulse" : "bg-burgund"}`} />
+                    {isPlaying ? "Wideo leci..." : "Zatrzymano"}
+                  </span>
+
+                  {/* Przycisk wyciszenia */}
+                  <button
+                    type="button"
+                    onClick={handleToggleMute}
+                    aria-label={isMuted ? "Włącz dźwięk" : "Wycisz dźwięk"}
+                    className="pointer-events-auto w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-granat/85 backdrop-blur-sm border border-krem/20 text-krem flex items-center justify-center hover:bg-burgund transition-colors shadow-md"
                   >
-                    {/* Górna plakietka */}
-                    <div className="absolute top-3 inset-x-3 flex justify-center">
-                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-krem/95 text-granat text-[10px] sm:text-[11px] font-bold shadow-md tracking-wider uppercase">
-                        <span className="w-2 h-2 rounded-full bg-burgund animate-pulse" />
-                        Talia 01 · Wideo
-                      </span>
-                    </div>
+                    {isMuted ? (
+                      <VolumeX className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-krem/80" />
+                    ) : (
+                      <Volume2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-krem" />
+                    )}
+                  </button>
+                </div>
 
-                    {/* Centralny pulsujący przycisk PLAY */}
-                    <div className="relative flex items-center justify-center my-auto">
-                      <span className="absolute w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-burgund/40 animate-ping opacity-75" />
-                      <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-burgund text-krem shadow-2xl flex items-center justify-center group-hover:scale-110 group-hover:bg-burgund/95 transition-all duration-200 border-2 border-krem/40">
-                        <Play className="w-6 h-6 sm:w-7 sm:h-7 fill-krem ml-1" />
-                      </div>
+                {/* Nakładka przy pauzie (zatrzymano na pytaniu) */}
+                {!isPlaying && (
+                  <div className="absolute inset-0 bg-granat/35 backdrop-blur-[1px] flex flex-col items-center justify-center p-4 transition-all duration-200 z-10 select-none">
+                    <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-burgund text-krem shadow-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-200 border-2 border-krem/40">
+                      <Play className="w-6 h-6 sm:w-7 sm:h-7 fill-krem ml-1" />
                     </div>
+                    <span className="mt-3 px-3 py-1.5 rounded-xl bg-granat/90 backdrop-blur-sm text-krem text-[11px] sm:text-xs font-semibold shadow-lg text-center border border-krem/20">
+                      ▶ Kliknij, by losować dalej
+                    </span>
+                  </div>
+                )}
 
-                    {/* Podpis pod przyciskiem */}
-                    <span className="mt-auto mb-2 px-3 py-1.5 rounded-xl bg-granat/85 backdrop-blur-sm text-krem text-[11px] sm:text-xs font-semibold shadow-lg text-center border border-krem/20">
-                      ▶ Kliknij i włącz film
+                {/* Dolna podpowiedź przy lecącym wideo (znika przy pauzie) */}
+                {isPlaying && (
+                  <div className="absolute bottom-2.5 sm:bottom-3 inset-x-2.5 sm:inset-x-3 flex justify-center pointer-events-none z-10">
+                    <span className="px-3 py-1 rounded-full bg-granat/85 backdrop-blur-sm text-krem text-[10px] sm:text-[11px] font-medium shadow-md border border-krem/15 flex items-center gap-1.5 group-hover:bg-burgund transition-colors">
+                      <Pause className="w-3 h-3 fill-krem" />
+                      Kliknij, by zatrzymać na pytaniu
                     </span>
                   </div>
                 )}
@@ -229,7 +276,7 @@ export default function NewsletterHero() {
 
             {/* Wskazówka pod wachlarzem */}
             <p className="text-[11px] sm:text-xs text-granat/70 text-center mt-3 font-medium leading-relaxed max-w-sm">
-              👆 <strong>Wypróbuj teraz:</strong> Włącz środkowe wideo, zatrzymaj w losowej sekundzie i zobacz wylosowane pytanie!
+              👆 <strong>Wypróbuj teraz:</strong> Kliknij wideo w dowolnym momencie, aby zatrzymać na wylosowanym pytaniu!
             </p>
 
           </div>
