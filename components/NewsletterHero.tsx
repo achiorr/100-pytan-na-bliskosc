@@ -249,27 +249,20 @@ export default function NewsletterHero() {
                   </button>
                 </div>
 
-                {/* Nakładka przy pauzie (zatrzymano na pytaniu) */}
-                {!isPlaying && (
-                  <div className="absolute inset-0 bg-granat/35 backdrop-blur-[1px] flex flex-col items-center justify-center p-4 transition-all duration-200 z-10 select-none">
-                    <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-burgund text-krem shadow-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-200 border-2 border-krem/40">
-                      <Play className="w-6 h-6 sm:w-7 sm:h-7 fill-krem ml-1" />
-                    </div>
-                    <span className="mt-3 px-3 py-1.5 rounded-xl bg-granat/90 backdrop-blur-sm text-krem text-[11px] sm:text-xs font-semibold shadow-lg text-center border border-krem/20">
-                      ▶ Kliknij, by losować dalej
-                    </span>
-                  </div>
-                )}
-
-                {/* Dolna podpowiedź przy lecącym wideo (znika przy pauzie) */}
-                {isPlaying && (
-                  <div className="absolute bottom-2.5 sm:bottom-3 inset-x-2.5 sm:inset-x-3 flex justify-center pointer-events-none z-10">
+                {/* Dyskretna dolna plakietka stanu */}
+                <div className="absolute bottom-2.5 sm:bottom-3 inset-x-2.5 sm:inset-x-3 flex justify-center pointer-events-none z-10">
+                  {isPlaying ? (
                     <span className="px-3 py-1 rounded-full bg-granat/85 backdrop-blur-sm text-krem text-[10px] sm:text-[11px] font-medium shadow-md border border-krem/15 flex items-center gap-1.5 group-hover:bg-burgund transition-colors">
                       <Pause className="w-3 h-3 fill-krem" />
                       Kliknij, by zatrzymać na pytaniu
                     </span>
-                  </div>
-                )}
+                  ) : (
+                    <span className="px-3 py-1 rounded-full bg-granat/90 backdrop-blur-sm text-krem text-[10px] sm:text-[11px] font-medium shadow-lg border border-krem/20 flex items-center gap-1.5 group-hover:bg-burgund transition-colors">
+                      <Play className="w-3 h-3 fill-krem" />
+                      Kliknij, by losować dalej
+                    </span>
+                  )}
+                </div>
               </div>
 
             </div>
