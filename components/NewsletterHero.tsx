@@ -1,9 +1,21 @@
 "use client";
 
+import { useState, useRef } from "react";
+import { Play } from "lucide-react";
 import { CHECKOUT_URL, SAMPLE_VIDEO_URL, SAMPLE_VIDEO_POSTER } from "@/lib/constants";
 import { trackInitiateCheckout } from "@/lib/pixel";
 
 export default function NewsletterHero() {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handleStartPlay = () => {
+    if (videoRef.current) {
+      videoRef.current.play();
+      setIsPlaying(true);
+    }
+  };
+
   const cardsLeft = [
     {
       id: "04",
@@ -133,6 +145,12 @@ export default function NewsletterHero() {
                     className="w-full h-full object-cover object-center"
                     loading="lazy"
                   />
+                  {/* Znacznik Play na kartach w tle */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-granat/55 backdrop-blur-[2px] border border-krem/30 flex items-center justify-center text-krem shadow-lg">
+                      <Play className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-krem ml-0.5 opacity-90" />
+                    </div>
+                  </div>
                 </div>
               ))}
 
@@ -148,21 +166,63 @@ export default function NewsletterHero() {
                     className="w-full h-full object-cover object-center"
                     loading="lazy"
                   />
+                  {/* Znacznik Play na kartach w tle */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-granat/55 backdrop-blur-[2px] border border-krem/30 flex items-center justify-center text-krem shadow-lg">
+                      <Play className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-krem ml-0.5 opacity-90" />
+                    </div>
+                  </div>
                 </div>
               ))}
 
               {/* ŚRODKOWA TALIA (01 · Na rozgrzewkę) — Pełny aktywny odtwarzacz wideo na samej górze */}
-              <div className="relative w-[210px] sm:w-[250px] md:w-[260px] aspect-[9/16] rounded-2xl sm:rounded-3xl border-2 sm:border-[3px] border-granat/25 bg-granat shadow-2xl overflow-hidden z-30 ring-4 sm:ring-8 ring-krem/80">
+              <div className="relative w-[210px] sm:w-[250px] md:w-[260px] aspect-[9/16] rounded-2xl sm:rounded-3xl border-2 sm:border-[3px] border-granat/25 bg-granat shadow-2xl overflow-hidden z-30 ring-4 sm:ring-8 ring-krem/80 group">
                 <video
+                  ref={videoRef}
                   controls
                   playsInline
                   preload="metadata"
                   poster={SAMPLE_VIDEO_POSTER}
-                  className="w-full h-full object-cover"
+                  onPlay={() => setIsPlaying(true)}
+                  onPause={() => setIsPlaying(false)}
+                  onEnded={() => setIsPlaying(false)}
+                  className="w-full h-full object-cover cursor-pointer"
                 >
                   <source src={SAMPLE_VIDEO_URL} type="video/mp4" />
                   Twoja przeglądarka nie obsługuje odtwarzacza wideo.
                 </video>
+
+                {/* Nakładka z wyraźnym przyciskiem PLAY przed startem wideo */}
+                {!isPlaying && (
+                  <div
+                    onClick={handleStartPlay}
+                    className="absolute inset-0 bg-granat/40 hover:bg-granat/30 backdrop-blur-[1px] flex flex-col items-center justify-center cursor-pointer transition-all duration-200 z-10 p-4 select-none"
+                    role="button"
+                    tabIndex={0}
+                    aria-label="Włącz wideo testowe"
+                  >
+                    {/* Górna plakietka */}
+                    <div className="absolute top-3 inset-x-3 flex justify-center">
+                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-krem/95 text-granat text-[10px] sm:text-[11px] font-bold shadow-md tracking-wider uppercase">
+                        <span className="w-2 h-2 rounded-full bg-burgund animate-pulse" />
+                        Talia 01 · Wideo
+                      </span>
+                    </div>
+
+                    {/* Centralny pulsujący przycisk PLAY */}
+                    <div className="relative flex items-center justify-center my-auto">
+                      <span className="absolute w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-burgund/40 animate-ping opacity-75" />
+                      <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-burgund text-krem shadow-2xl flex items-center justify-center group-hover:scale-110 group-hover:bg-burgund/95 transition-all duration-200 border-2 border-krem/40">
+                        <Play className="w-6 h-6 sm:w-7 sm:h-7 fill-krem ml-1" />
+                      </div>
+                    </div>
+
+                    {/* Podpis pod przyciskiem */}
+                    <span className="mt-auto mb-2 px-3 py-1.5 rounded-xl bg-granat/85 backdrop-blur-sm text-krem text-[11px] sm:text-xs font-semibold shadow-lg text-center border border-krem/20">
+                      ▶ Kliknij i włącz film
+                    </span>
+                  </div>
+                )}
               </div>
 
             </div>

@@ -6,6 +6,7 @@ import {
   ShieldCheck,
   Moon,
   Flame,
+  Play,
 } from "lucide-react";
 
 export default function WhatInside() {
@@ -93,13 +94,19 @@ export default function WhatInside() {
                 key={deck.num}
                 className="w-[120px] sm:w-[130px] md:w-[125px] lg:w-[132px] shrink-0 snap-center rounded-xl sm:rounded-2xl border border-granat/15 bg-krem shadow-sm hover:shadow-md hover:-translate-y-1.5 transition-all duration-300 overflow-hidden group cursor-default"
               >
-                <div className="aspect-[9/16] w-full overflow-hidden bg-kremDim">
+                <div className="relative aspect-[9/16] w-full overflow-hidden bg-kremDim">
                   <img
                     src={deck.img}
                     alt={`Talia ${deck.num} — ${deck.title}`}
                     className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
                     loading="lazy"
                   />
+                  {/* Znacznik wideo */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-granat/60 backdrop-blur-[2px] border border-krem/30 flex items-center justify-center text-krem shadow-md group-hover:scale-110 group-hover:bg-burgund transition-all duration-200">
+                      <Play className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-krem ml-0.5 opacity-95" />
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
