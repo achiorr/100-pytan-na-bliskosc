@@ -97,45 +97,10 @@ export default function NewsletterHero() {
   return (
     <section className="relative bg-krem py-10 sm:py-16 md:py-20 border-b border-granat/10 overflow-hidden">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           
-          {/* Lewa kolumna: Treść i CTA */}
-          <div className="lg:col-span-6 flex flex-col items-start z-10">
-            
-            {/* Nagłówek H1 */}
-            <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-granat leading-[1.1] mb-2">
-              Stopklatki
-              <span className="block font-heading italic text-2xl sm:text-3xl md:text-4xl text-burgund font-normal mt-1.5 sm:mt-2">
-                Zrób pauzę na dobrą rozmowę
-              </span>
-            </h1>
-
-            {/* Wyjaśnienie / Lead */}
-            <div className="font-sans text-sm sm:text-base text-granat/85 leading-relaxed mt-4 mb-8 space-y-3">
-              <p>
-                Na co dzień rozmawiacie o zakupach, grafikach i tym, kto odbiera paczkę. Stopklatki pomagają wrócić do rozmów o was: o tym, co was cieszy, czego potrzebujecie i o czym marzycie.
-              </p>
-              <p>
-                Włączcie film, zatrzymajcie go w dowolnym momencie i odpowiedzcie na pytanie, które się pojawi. Tyle wystarczy, żeby znów się sobą zaciekawić.
-              </p>
-            </div>
-
-            {/* Główne CTA */}
-            <div className="w-full sm:w-auto">
-              <a
-                href={CHECKOUT_URL}
-                onClick={() => trackInitiateCheckout()}
-                className="w-full sm:w-auto inline-flex items-center justify-center rounded-2xl bg-burgund px-8 py-4 text-base sm:text-lg font-semibold text-krem shadow-lg hover:brightness-90 hover:shadow-xl transition-all duration-200 group"
-              >
-                Kupuję cały zestaw
-                <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
-              </a>
-            </div>
-
-          </div>
-
-          {/* Prawa kolumna: Wachlarz 7 talii ze środkowym wideo "Na rozgrzewkę" */}
-          <div className="lg:col-span-6 w-full mt-8 lg:mt-0 flex flex-col items-center">
+          {/* Kolumna z grafiką i wideo (Lewa na desktopie) */}
+          <div className="lg:col-span-6 w-full flex flex-col items-center order-2 lg:order-1">
             
             {/* Kontener sceny wachlarza */}
             <div className="relative w-full max-w-[340px] sm:max-w-[420px] md:max-w-[460px] h-[460px] sm:h-[520px] flex items-center justify-center select-none pt-4 sm:pt-6">
@@ -271,6 +236,41 @@ export default function NewsletterHero() {
             <p className="text-[11px] sm:text-xs text-granat/70 text-center mt-3 font-medium leading-relaxed max-w-sm">
               👆 <strong>Wypróbuj teraz:</strong> Kliknij wideo w dowolnym momencie, aby zatrzymać na wylosowanym pytaniu!
             </p>
+
+          </div>
+
+          {/* Kolumna z tekstem i CTA (Prawa na desktopie) */}
+          <div className="lg:col-span-6 flex flex-col items-start z-10 order-1 lg:order-2">
+            
+            {/* Nagłówek H1 */}
+            <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-granat leading-[1.1] mb-2">
+              Stopklatki
+              <span className="block font-heading italic text-2xl sm:text-3xl md:text-4xl text-burgund font-normal mt-1.5 sm:mt-2">
+                Zrób pauzę na dobrą rozmowę
+              </span>
+            </h1>
+
+            {/* Wyjaśnienie / Lead */}
+            <div className="font-sans text-sm sm:text-base text-granat/85 leading-relaxed mt-4 mb-8 space-y-3">
+              <p>
+                Na co dzień rozmawiacie o zakupach, grafikach i tym, kto odbiera paczkę. Stopklatki pomagają wrócić do rozmów o was: o tym, co was cieszy, czego potrzebujecie i o czym marzycie.
+              </p>
+              <p>
+                Włączcie film, zatrzymajcie go w dowolnym momencie i odpowiedzcie na pytanie, które się pojawi. Tyle wystarczy, żeby znów się sobą zaciekawić.
+              </p>
+            </div>
+
+            {/* Główne CTA */}
+            <div className="w-full sm:w-auto">
+              <a
+                href={CHECKOUT_URL}
+                onClick={() => trackInitiateCheckout()}
+                className="w-full sm:w-auto inline-flex items-center justify-center rounded-2xl bg-burgund px-8 py-4 text-base sm:text-lg font-semibold text-krem shadow-lg hover:brightness-90 hover:shadow-xl transition-all duration-200 group"
+              >
+                Kupuję cały zestaw
+                <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+              </a>
+            </div>
 
           </div>
 
