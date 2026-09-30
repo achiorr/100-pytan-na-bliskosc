@@ -59,7 +59,7 @@ export default function WhatInside() {
       num: "06",
       title: "Marzenia i przyszłość",
       desc: "O tym, co chcemy razem zbudować.",
-      sample: "„Jak wygląda zwykły wtorek z naszego życia za pięć lat?”",
+      sample: "„Jakie twoje marzenie mogę wspierać bardziej?”",
       icon: Moon,
       img: "/images/karty-tytulowe/06-Marzenia-i-przyszlosc-tytul.jpg",
     },
