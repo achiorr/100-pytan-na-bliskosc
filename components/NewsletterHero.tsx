@@ -260,17 +260,14 @@ export default function NewsletterHero() {
               </p>
             </div>
 
-            {/* Główne CTA z ceną promocyjną (wyśrodkowane) */}
-            <div className="w-full sm:w-auto flex flex-col items-center text-center gap-3">
-              <div className="flex items-center justify-center gap-3">
+            {/* Główne CTA z ceną premierową (wyśrodkowane) */}
+            <div id="hero-cta" className="w-full sm:w-auto flex flex-col items-center text-center gap-3">
+              <div className="flex flex-wrap items-center justify-center gap-2 text-granat">
                 <span className="font-heading text-3xl sm:text-4xl font-bold text-burgund">
                   29 zł
                 </span>
-                <span className="text-base sm:text-lg text-granat/50 line-through font-medium">
-                  67 zł
-                </span>
-                <span className="text-xs font-bold uppercase tracking-wider text-burgund bg-roz px-2.5 py-1 rounded-full">
-                  Promocja
+                <span className="text-xs sm:text-sm text-granat/75 font-medium">
+                  · cena premierowa (docelowo 67 zł)
                 </span>
               </div>
 
@@ -283,8 +280,8 @@ export default function NewsletterHero() {
                 <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
               </a>
 
-              <p className="text-[11px] sm:text-xs text-granat/65 font-medium text-center">
-                ⚡ Natychmiastowy dostęp po zakupie · Płacisz raz, korzystasz bez limitu
+              <p className="text-[11px] sm:text-xs text-granat/70 font-medium text-center">
+                Zaraz po płatności dostaniecie maila z dostępem i instrukcją.
               </p>
             </div>
 

@@ -4,20 +4,24 @@ import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 
 export default function FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const faqs = [
     {
-      q: "Czy ten plik PDF ze 100 pytaniami jest bezpłatny?",
-      a: "Tak, przewodnik jest w 100% bezpłatny. Nie musisz podawać żadnych danych karty.",
+      q: "Na czym działają Stopklatki?",
+      a: "Możesz je pobrać na telefon i będą działały jak aplikacja, ale możesz mieć też do nich dostęp na dowolnym urządzeniu z przeglądarką.",
     },
     {
-      q: "Kiedy otrzymam plik?",
-      a: "Natychmiast po wpisaniu adresu e-mail otrzymasz wiadomość z bezpośrednim linkiem do pobrania pliku PDF na telefon lub komputer.",
+      q: "Jak dostanę dostęp?",
+      a: "Zaraz po płatności dostaniecie maila z dostępem. Będzie też w nim dokładna instrukcja jak zainstalować aplikację.",
     },
     {
-      q: "Czy musimy odpowiadać na wszystkie pytania po kolei?",
-      a: "Zdecydowanie nie! Wybierzcie jedno pytanie, które akurat Was zaciekawi — przy porannej kawie, na spacerze lub wieczorem. Wystarczy kilka minut.",
+      q: "Czy to subskrypcja?",
+      a: "Nie. Płacicie raz i macie dostęp bez limitu czasu.",
+    },
+    {
+      q: "Czy trzeba odpowiadać na każde pytanie?",
+      a: "Nie. Jeśli pytanie wam nie pasuje, po prostu zatrzymajcie film jeszcze raz. Bliskość rośnie w poczuciu bezpieczeństwa, nie przymusu.",
     },
   ];
 
@@ -26,36 +30,40 @@ export default function FAQ() {
   };
 
   return (
-    <section className="bg-kremDim py-12 sm:py-16 border-b border-granat/10">
-      <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-8">
-          <h2 className="font-heading text-xl sm:text-2xl font-bold tracking-tight text-granat">
-            Najczęściej zadawane pytania
+    <section className="bg-krem py-14 sm:py-20 border-b border-granat/10">
+      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
+          <span className="text-burgund uppercase tracking-wider text-xs sm:text-sm font-semibold mb-2.5 block">
+            PYTANIA
+          </span>
+          <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-granat leading-tight">
+            Najczęstsze pytania
           </h2>
         </div>
 
-        <div className="space-y-3">
+        <div className="space-y-3.5">
           {faqs.map((faq, idx) => {
             const isOpen = openIndex === idx;
             return (
               <div
                 key={idx}
-                className="rounded-2xl border border-granat/10 bg-krem overflow-hidden"
+                className="rounded-2xl border border-granat/10 bg-kremDim overflow-hidden transition-all duration-200 hover:border-burgund/30"
               >
                 <button
                   type="button"
                   onClick={() => toggle(idx)}
-                  className="w-full px-5 py-4 text-left flex items-center justify-between gap-4 font-heading font-semibold text-sm sm:text-base text-granat hover:text-burgund transition-colors cursor-pointer"
+                  className="w-full px-6 py-4 sm:py-5 text-left flex items-center justify-between gap-4 font-heading font-bold text-base sm:text-lg text-granat hover:text-burgund transition-colors cursor-pointer"
+                  aria-expanded={isOpen}
                 >
                   <span>{faq.q}</span>
                   <ChevronDown
-                    className={`w-4 h-4 text-burgund shrink-0 transition-transform duration-200 ${
+                    className={`w-5 h-5 text-burgund shrink-0 transition-transform duration-200 ${
                       isOpen ? "rotate-180" : ""
                     }`}
                   />
                 </button>
                 {isOpen && (
-                  <div className="px-5 pb-4 pt-1 text-xs sm:text-sm text-granat/80 leading-relaxed border-t border-granat/5">
+                  <div className="px-6 pb-5 pt-1 text-sm sm:text-base text-granat/85 leading-relaxed border-t border-granat/5">
                     {faq.a}
                   </div>
                 )}

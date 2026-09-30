@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Sparkles,
   Users,
@@ -8,6 +10,8 @@ import {
   Flame,
   Play,
 } from "lucide-react";
+import { CHECKOUT_URL } from "@/lib/constants";
+import { trackInitiateCheckout } from "@/lib/pixel";
 
 export default function WhatInside() {
   const decks = [
@@ -55,7 +59,7 @@ export default function WhatInside() {
       num: "06",
       title: "Marzenia i przyszłość",
       desc: "O tym, co chcemy razem zbudować.",
-      sample: "„Co chcesz razem ze mną zbudować?”",
+      sample: "„Jak wygląda zwykły wtorek z naszego życia za pięć lat?”",
       icon: Moon,
       img: "/images/karty-tytulowe/06-Marzenia-i-przyszlosc-tytul.jpg",
     },
@@ -82,7 +86,7 @@ export default function WhatInside() {
             Co jest w poszczególnych taliach
           </h2>
           <p className="text-sm sm:text-base text-granat/80 mt-3.5 leading-relaxed">
-            Każda talia to inny temat i inna głębia — od lekkiej rozgrzewki do wykorzystania na rozmowę w samochodzie, po pytania o wartości i namiętność na wieczorne rozmowy.
+            Każda talia to inny temat i inna głębia: od lekkich pytań na drogę samochodem po rozmowy o wartościach i namiętności na spokojny wieczór.
           </p>
         </div>
 
@@ -152,6 +156,18 @@ export default function WhatInside() {
               </div>
             );
           })}
+        </div>
+
+        {/* 4. CTA na końcu sekcji */}
+        <div className="mt-12 sm:mt-16 text-center">
+          <a
+            href={CHECKOUT_URL}
+            onClick={() => trackInitiateCheckout()}
+            className="w-full sm:w-auto inline-flex items-center justify-center rounded-2xl bg-burgund px-8 py-4 text-base sm:text-lg font-semibold text-krem shadow-lg hover:brightness-90 hover:shadow-xl transition-all duration-200 group"
+          >
+            Kupuję cały zestaw za 29 zł
+            <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+          </a>
         </div>
 
       </div>

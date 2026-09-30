@@ -15,22 +15,22 @@ export default function OfferSection() {
     {
       icon: Video,
       title: "7 wirtualnych talii kart",
-      desc: "W każdej z nich znajdziesz 100 różnorodnych pytań.",
+      desc: "W każdej z nich znajdziecie 100 różnorodnych pytań.",
     },
     {
       icon: Infinity,
       title: "Dożywotni dostęp",
-      desc: "Płacisz raz i wracasz do pytań kiedy tylko chcecie — bez żadnych limitów.",
+      desc: "Płacicie raz i wracacie do pytań, kiedy tylko chcecie, bez żadnych limitów.",
     },
     {
       icon: Smartphone,
       title: "Odtwarzanie na telefonie i komputerze",
-      desc: "Z kart możesz korzystać na dowolnym urządzeniu.",
+      desc: "Z kart możecie korzystać na dowolnym urządzeniu.",
     },
     {
       icon: Zap,
       title: "Zawsze przy tobie",
-      desc: "Nie potrzebujesz wielkich plansz, czy pudełek - karty są dostępne zawsze w twoim telefonie.",
+      desc: "Nie potrzebujecie plansz ani pudełek. Karty zawsze macie pod ręką w telefonie.",
     },
   ];
 
@@ -47,7 +47,7 @@ export default function OfferSection() {
             Wszystkie 7 wirtualnych talii w jednym pakiecie
           </h2>
           <p className="text-base sm:text-lg text-granat/80 mt-3.5 leading-relaxed">
-            Pobierz wszystkie 7 talii - w sumie 700 pytań na bliskość i miej pod ręką gotowy sposób na dobrą rozmowę we dwoje.
+            Pobierzcie wszystkie 7 talii — w sumie 700 pytań na bliskość i miejcie pod ręką gotowy sposób na dobrą rozmowę we dwoje.
           </p>
         </div>
 
@@ -79,7 +79,7 @@ export default function OfferSection() {
         {/* 2. Pudełko oferty i CTA */}
         <div className="max-w-xl mx-auto rounded-3xl border-2 border-granat/20 bg-krem p-8 sm:p-10 shadow-xl text-center">
           <span className="text-xs font-bold uppercase tracking-widest text-burgund bg-roz px-3.5 py-1 rounded-full inline-block mb-4">
-            OFERTA SPECJALNA · PROMOCJA
+            CENA PREMIEROWA
           </span>
 
           <div className="mb-6">
@@ -91,16 +91,16 @@ export default function OfferSection() {
             </span>
 
             {/* Blok cenowy */}
-            <div className="mt-5 mb-2 flex items-center justify-center gap-3">
-              <span className="text-lg sm:text-xl text-granat/50 line-through font-medium">
-                67 zł
-              </span>
+            <div className="mt-5 mb-2 flex items-center justify-center">
               <span className="font-heading text-4xl sm:text-5xl font-bold text-burgund">
                 29 zł
               </span>
             </div>
-            <p className="text-xs text-burgund font-semibold">
-              Teraz w cenie promocyjnej (zamiast 67 zł)
+            <p className="text-xs text-burgund font-semibold mb-1">
+              Cena premierowa na start Stopklatek. Docelowa cena to 67 zł.
+            </p>
+            <p className="text-xs text-granat/75 font-medium">
+              Zaraz po płatności dostaniecie maila z dostępem i instrukcją.
             </p>
           </div>
 
@@ -130,7 +130,7 @@ export default function OfferSection() {
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-burgund shrink-0" />
-                    <span><strong>Fundamenty</strong> — o wartościach i tym, co Was łączy</span>
+                    <span><strong>Fundamenty</strong> — o wartościach i tym, co was łączy</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-burgund shrink-0" />

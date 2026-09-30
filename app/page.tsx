@@ -3,9 +3,13 @@ import NewsletterHero from "@/components/NewsletterHero";
 import DynamicTagline from "@/components/DynamicTagline";
 import HowToUse from "@/components/HowToUse";
 import WhatInside from "@/components/WhatInside";
+import ForWhom from "@/components/ForWhom";
 import AboutAuthors from "@/components/AboutAuthors";
 import OfferSection from "@/components/OfferSection";
+import FAQ from "@/components/FAQ";
+import FinalCta from "@/components/FinalCta";
 import Footer from "@/components/Footer";
+import StickyMobileBar from "@/components/StickyMobileBar";
 
 export default function Home() {
   return (
@@ -13,26 +17,38 @@ export default function Home() {
       {/* 1. Nawigacja z logo */}
       <Navbar />
 
-      {/* 2. Główna sekcja Hero ze środkowym interaktywnym odtwarzaczem i CTA */}
+      {/* 2. Hero z demo */}
       <NewsletterHero />
 
-      {/* 3. Dynamiczny napis z rotującymi końcówkami (typewriter) */}
+      {/* Blok dynamicznego napisu zaraz pod hero */}
       <DynamicTagline />
 
-      {/* 4. 5 prostych zasad jak korzystać ze stopklatek */}
+      {/* 3. Jak korzystać ze Stopklatek */}
       <HowToUse />
 
-      {/* 5. 7 talii — 700 pytań na bliskość (co w środku) */}
+      {/* 4. Co jest w poszczególnych taliach */}
       <WhatInside />
 
-      {/* 6. O autorach (@szczesliwi_razem) */}
+      {/* 5. Dla kogo są Stopklatki */}
+      <ForWhom />
+
+      {/* 6. Kto za tym stoi? */}
       <AboutAuthors />
 
-      {/* 7. Pełna sekcja oferty */}
+      {/* 7. Pełen zestaw i oferta z ceną */}
       <OfferSection />
 
-      {/* 8. Stopka */}
+      {/* 8. Najczęstsze pytania */}
+      <FAQ />
+
+      {/* 9. Końcowe wezwanie do zakupu */}
+      <FinalCta />
+
+      {/* 10. Stopka */}
       <Footer />
+
+      {/* Przyklejony pasek na dole na urządzeniach mobilnych */}
+      <StickyMobileBar />
     </main>
   );
 }

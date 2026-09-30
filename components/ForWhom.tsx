@@ -1,67 +1,63 @@
-import { Check, X } from "lucide-react";
-
 export default function ForWhom() {
-  const forWhomItems = [
-    "Czujesz, że w Waszych rozmowach często pojawia się dystans lub niezrozumienie.",
-    "Chcesz umieć rozmawiać o trudnych sprawach spokojnie, bez podnoszenia głosu.",
-    "Zależy Ci na budowaniu głębszej bliskości i prawdziwego partnerstwa.",
-    "Szukasz sprawdzonych, życiowych narzędzi, a nie skomplikowanych teorii.",
-  ];
-
-  const notForWhomItems = [
-    "Szukasz magicznych trików lub manipulacji drugą osobą.",
-    "Oczekujesz, że relacja naprawi się sama bez Twojego zaangażowania.",
+  const items = [
+    {
+      num: "1",
+      title: "Dla par na początku drogi",
+      desc: "które chcą się lepiej poznać.",
+    },
+    {
+      num: "2",
+      title: "Dla par z dłuższym stażem",
+      desc: "które chcą znów się sobą zaciekawić.",
+    },
+    {
+      num: "3",
+      title: "Dla zabieganych",
+      desc: "którym brakuje czasu i pomysłu na dobrą rozmowę.",
+    },
+    {
+      num: "4",
+      title: "Na randkę w domu",
+      desc: "długą podróż albo spokojny wieczór we dwoje.",
+    },
   ];
 
   return (
-    <section className="bg-krem py-16 sm:py-24 border-b border-granat/10">
+    <section className="bg-kremDim py-14 sm:py-20 border-b border-granat/10">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-14">
-          <span className="text-burgund uppercase tracking-wider text-xs sm:text-sm font-semibold mb-3 block">
-            DOPASOWANIE
+        
+        {/* Nagłówek sekcji */}
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <span className="text-burgund uppercase tracking-wider text-xs sm:text-sm font-semibold mb-2.5 block">
+            DLA KOGO
           </span>
           <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-granat leading-tight">
-            Czy ten materiał jest dla Ciebie?
+            Dla kogo są Stopklatki?
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Dla kogo TAK */}
-          <div className="rounded-2xl border-2 border-emerald-500/20 bg-emerald-50/40 p-6 sm:p-8">
-            <h3 className="font-heading text-xl font-bold text-granat mb-6 flex items-center gap-2">
-              <span className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs font-bold">
-                ✓
-              </span>
-              Ten przewodnik pomoże Ci, jeśli:
-            </h3>
-            <ul className="space-y-4">
-              {forWhomItems.map((item, idx) => (
-                <li key={idx} className="flex items-start gap-3 text-sm sm:text-base text-granat/90">
-                  <Check className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Dla kogo NIE */}
-          <div className="rounded-2xl border-2 border-granat/10 bg-kremDim p-6 sm:p-8">
-            <h3 className="font-heading text-xl font-bold text-granat mb-6 flex items-center gap-2">
-              <span className="w-6 h-6 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center text-xs font-bold">
-                ✕
-              </span>
-              To nie jest materiał dla Ciebie, jeśli:
-            </h3>
-            <ul className="space-y-4">
-              {notForWhomItems.map((item, idx) => (
-                <li key={idx} className="flex items-start gap-3 text-sm sm:text-base text-granat/80">
-                  <X className="w-5 h-5 text-rose-500 shrink-0 mt-0.5" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+        {/* 4 karty w stylu sekcji Jak korzystać */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {items.map((item, idx) => (
+            <div
+              key={idx}
+              className="rounded-2xl border border-granat/10 bg-krem p-6 shadow-sm flex flex-col justify-between hover:border-burgund/30 transition-colors"
+            >
+              <div>
+                <div className="w-8 h-8 rounded-full bg-roz text-burgund font-heading font-bold flex items-center justify-center mb-4 text-sm shrink-0">
+                  {item.num}
+                </div>
+                <h3 className="font-heading font-bold text-base sm:text-lg text-granat mb-1.5 leading-snug">
+                  {item.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-granat/80 leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
+
       </div>
     </section>
   );
