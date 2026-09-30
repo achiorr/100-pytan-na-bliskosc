@@ -20,15 +20,23 @@ export default function AboutAuthors() {
 
           {/* Krótki opis */}
           <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
-            <span className="text-burgund uppercase tracking-wider text-xs font-semibold mb-2">
-              AUTORZY PYTAŃ
+            <span className="text-roz uppercase tracking-wider text-xs font-semibold mb-2">
+              KTO ZA TYM STOI?
             </span>
             <h2 className="font-heading text-2xl sm:text-3xl font-bold tracking-tight text-krem mb-3">
               Ula i Krzysiek Głowaccy
             </h2>
-            <p className="text-sm sm:text-base text-krem/85 leading-relaxed mb-4">
-              Jesteśmy psychologami, psychoterapeutami i małżeństwem od 14 lat. Na profilu <strong>@szczesliwi_razem</strong> dzielimy się wiedzą o tym, jak budować bliskość i rozmawiać bez niepotrzebnych spięć.
-            </p>
+            <div className="space-y-3 text-sm sm:text-base text-krem/85 leading-relaxed mb-4">
+              <p>
+                Jesteśmy psychologami, psychoterapeutami i małżeństwem od 14 lat, oraz rodzicami trójki dzieci. Od ponad 10 lat wspieramy innych w budowaniu dobrych relacji.
+              </p>
+              <p>
+                Prowadzimy kursy, webinary i programy rozwojowe, w których uczestniczyło już kilkadziesiąt tysięcy osób. Wysyłamy newsletter do blisko 15 tys. osób, a w naszych social mediach obserwuje nas ponad 90 tys. ludzi. Dzielimy się tam wiedzą na temat tego, jak budować i utrzymywać szczęśliwe relacje.
+              </p>
+              <p className="font-medium text-krem">
+                Stopklatki są naszym pomysłem, jak robić to w zabieganej rzeczywistości.
+              </p>
+            </div>
             <p className="text-xs text-krem/70 italic">
               „Najpiękniejsze rozmowy to te, które trwają dalej.”
             </p>
