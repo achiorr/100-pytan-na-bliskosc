@@ -37,9 +37,6 @@ export default function AboutAuthors() {
                 Stopklatki są naszym pomysłem, jak robić to w zabieganej rzeczywistości.
               </p>
             </div>
-            <p className="text-xs text-krem/70 italic">
-              „Najpiękniejsze rozmowy to te, które trwają dalej.”
-            </p>
           </div>
         </div>
       </div>
