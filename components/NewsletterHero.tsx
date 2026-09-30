@@ -239,11 +239,11 @@ export default function NewsletterHero() {
 
           </div>
 
-          {/* Kolumna z tekstem i CTA (Prawa na desktopie) */}
-          <div className="lg:col-span-6 flex flex-col items-start z-10 order-1 lg:order-2">
+          {/* Kolumna z tekstem i CTA (Wyśrodkowana) */}
+          <div className="lg:col-span-6 flex flex-col items-center text-center z-10 order-1 lg:order-2">
             
             {/* Nagłówek H1 */}
-            <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-granat leading-[1.1] mb-2">
+            <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-granat leading-[1.1] mb-2 text-center">
               Stopklatki
               <span className="block font-heading italic text-2xl sm:text-3xl md:text-4xl text-burgund font-normal mt-1.5 sm:mt-2">
                 Zrób pauzę na dobrą rozmowę
@@ -251,7 +251,7 @@ export default function NewsletterHero() {
             </h1>
 
             {/* Wyjaśnienie / Lead */}
-            <div className="font-sans text-sm sm:text-base text-granat/85 leading-relaxed mt-4 mb-8 space-y-3">
+            <div className="font-sans text-sm sm:text-base text-granat/85 leading-relaxed mt-4 mb-8 space-y-3 text-center max-w-lg">
               <p>
                 Na co dzień rozmawiacie o zakupach, grafikach i tym, kto odbiera paczkę. Stopklatki pomagają wrócić do rozmów o was: o tym, co was cieszy, czego potrzebujecie i o czym marzycie.
               </p>
@@ -260,9 +260,9 @@ export default function NewsletterHero() {
               </p>
             </div>
 
-            {/* Główne CTA z ceną promocyjną */}
-            <div className="w-full sm:w-auto flex flex-col items-start gap-3">
-              <div className="flex items-center gap-3">
+            {/* Główne CTA z ceną promocyjną (wyśrodkowane) */}
+            <div className="w-full sm:w-auto flex flex-col items-center text-center gap-3">
+              <div className="flex items-center justify-center gap-3">
                 <span className="font-heading text-3xl sm:text-4xl font-bold text-burgund">
                   29 zł
                 </span>
@@ -283,7 +283,7 @@ export default function NewsletterHero() {
                 <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
               </a>
 
-              <p className="text-[11px] sm:text-xs text-granat/65 font-medium">
+              <p className="text-[11px] sm:text-xs text-granat/65 font-medium text-center">
                 ⚡ Natychmiastowy dostęp po zakupie · Płacisz raz, korzystasz bez limitu
               </p>
             </div>
