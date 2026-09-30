@@ -14,8 +14,8 @@ export default function OfferSection() {
   const whatYouGet = [
     {
       icon: Video,
-      title: "7 filmów (700 pytań)",
-      desc: "Komplet 7 tematycznych talii — od lekkiego startu po głęboką intymność.",
+      title: "7 wirtualnych talii kart",
+      desc: "W każdej z nich znajdziesz 100 różnorodnych pytań.",
     },
     {
       icon: Infinity,
