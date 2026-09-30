@@ -86,7 +86,7 @@ export default function WhatInside() {
             Co jest w poszczególnych taliach
           </h2>
           <p className="text-sm sm:text-base text-granat/80 mt-3.5 leading-relaxed">
-            Każda talia to inny temat i inna głębia: od lekkich pytań na drogę samochodem po rozmowy o wartościach i namiętności na spokojny wieczór.
+            Każda talia to inny temat i inna głębia: od lekkich pytań na drogę samochodem po rozmowy o wartościach i namiętności na spokojny wieczór. Pytania są skonstruowane w taki sposób, by łączyły i budowały, a nie wynajdywały problemy.
           </p>
         </div>
 
