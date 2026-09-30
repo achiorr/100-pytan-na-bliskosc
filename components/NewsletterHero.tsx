@@ -260,16 +260,32 @@ export default function NewsletterHero() {
               </p>
             </div>
 
-            {/* Główne CTA */}
-            <div className="w-full sm:w-auto">
+            {/* Główne CTA z ceną promocyjną */}
+            <div className="w-full sm:w-auto flex flex-col items-start gap-3">
+              <div className="flex items-center gap-3">
+                <span className="font-heading text-3xl sm:text-4xl font-bold text-burgund">
+                  29 zł
+                </span>
+                <span className="text-base sm:text-lg text-granat/50 line-through font-medium">
+                  67 zł
+                </span>
+                <span className="text-xs font-bold uppercase tracking-wider text-burgund bg-roz px-2.5 py-1 rounded-full">
+                  Promocja
+                </span>
+              </div>
+
               <a
                 href={CHECKOUT_URL}
                 onClick={() => trackInitiateCheckout()}
                 className="w-full sm:w-auto inline-flex items-center justify-center rounded-2xl bg-burgund px-8 py-4 text-base sm:text-lg font-semibold text-krem shadow-lg hover:brightness-90 hover:shadow-xl transition-all duration-200 group"
               >
-                Kupuję cały zestaw
+                Kupuję cały zestaw za 29 zł
                 <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
               </a>
+
+              <p className="text-[11px] sm:text-xs text-granat/65 font-medium">
+                ⚡ Natychmiastowy dostęp po zakupie · Płacisz raz, korzystasz bez limitu
+              </p>
             </div>
 
           </div>

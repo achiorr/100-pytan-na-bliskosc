@@ -25,17 +25,25 @@ export default function BottomCta() {
           Wygodne zestawy pytań, które będą prowadzić do głębokich rozmów.
         </p>
 
+        <div className="flex items-center justify-center gap-3 mb-6">
+          <span className="text-lg text-granat/50 line-through font-medium">67 zł</span>
+          <span className="font-heading text-3xl sm:text-4xl font-bold text-burgund">29 zł</span>
+          <span className="text-xs font-bold uppercase tracking-wider text-burgund bg-roz px-2.5 py-1 rounded-full">
+            Promocja
+          </span>
+        </div>
+
         <div className="w-full sm:w-auto inline-block">
           <a
             href={CHECKOUT_URL}
             onClick={() => trackInitiateCheckout()}
             className="w-full sm:w-auto inline-flex items-center justify-center rounded-2xl bg-burgund px-8 sm:px-10 py-4 sm:py-5 text-base sm:text-lg font-semibold text-krem shadow-lg hover:brightness-90 hover:shadow-xl transition-all duration-200 group"
           >
-            Kupuję cały zestaw
+            Kupuję cały zestaw za 29 zł
             <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
           </a>
           <p className="text-xs sm:text-sm text-granat/70 mt-3 font-medium">
-            Jednorazowa opłata · dożywotni dostęp do 7 filmów · bez subskrypcji
+            Jednorazowa opłata · dożywotni dostęp do 7 talii · bez subskrypcji
           </p>
         </div>
 

@@ -48,8 +48,8 @@ export const trackLead = (params?: LeadParams) => {
 };
 
 export const trackInitiateCheckout = (params?: { value?: number; currency?: string; content_name?: string }) => {
-  const contentName = params?.content_name ?? "100 pytań na bliskość – wersja wideo";
-  const value = params?.value ?? 19;
+  const contentName = params?.content_name ?? "Stopklatki – 7 talii z pytaniami na bliskość";
+  const value = params?.value ?? 29;
   const currency = params?.currency ?? "PLN";
 
   // 1. Meta Pixel

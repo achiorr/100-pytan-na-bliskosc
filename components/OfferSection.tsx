@@ -78,8 +78,8 @@ export default function OfferSection() {
 
         {/* 2. Pudełko oferty i CTA */}
         <div className="max-w-xl mx-auto rounded-3xl border-2 border-granat/20 bg-krem p-8 sm:p-10 shadow-xl text-center">
-          <span className="text-xs font-bold uppercase tracking-widest text-burgund bg-roz px-3 py-1 rounded-full inline-block mb-4">
-            PEŁNY PAKIET
+          <span className="text-xs font-bold uppercase tracking-widest text-burgund bg-roz px-3.5 py-1 rounded-full inline-block mb-4">
+            OFERTA SPECJALNA · PROMOCJA
           </span>
 
           <div className="mb-6">
@@ -89,6 +89,19 @@ export default function OfferSection() {
             <span className="text-xs sm:text-sm text-granat/70 font-medium mt-1.5 block">
               jednorazowy, bezterminowy dostęp · bez subskrypcji
             </span>
+
+            {/* Blok cenowy */}
+            <div className="mt-5 mb-2 flex items-center justify-center gap-3">
+              <span className="text-lg sm:text-xl text-granat/50 line-through font-medium">
+                67 zł
+              </span>
+              <span className="font-heading text-4xl sm:text-5xl font-bold text-burgund">
+                29 zł
+              </span>
+            </div>
+            <p className="text-xs text-burgund font-semibold">
+              Teraz w cenie promocyjnej (zamiast 67 zł)
+            </p>
           </div>
 
           <div className="space-y-2.5 text-xs sm:text-sm text-granat/85 text-left max-w-sm mx-auto mb-8">
@@ -111,7 +124,7 @@ export default function OfferSection() {
             onClick={() => trackInitiateCheckout()}
             className="w-full inline-flex items-center justify-center rounded-2xl bg-burgund px-8 py-4 text-base sm:text-lg font-semibold text-krem shadow-lg hover:brightness-90 hover:shadow-xl transition-all duration-200 group"
           >
-            Kupuję cały zestaw
+            Kupuję cały zestaw za 29 zł
             <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
           </a>
 

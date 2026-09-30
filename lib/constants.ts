@@ -1,6 +1,6 @@
 export const CHECKOUT_URL =
   process.env.NEXT_PUBLIC_CHECKOUT_URL ||
-  "https://edu.5kamieni.pl/zamowienie/?add-to-cart=43397&price-id=1";
+  "https://edu.5kamieni.pl/zamowienie/?add-to-cart=43537&price-id=1";
 
 export const SAMPLE_VIDEO_URL =
   process.env.NEXT_PUBLIC_SAMPLE_VIDEO_URL ||
