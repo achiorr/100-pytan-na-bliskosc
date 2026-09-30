@@ -6,7 +6,6 @@ import {
   Smartphone,
   Zap,
   CheckCircle2,
-  Gift,
 } from "lucide-react";
 import { CHECKOUT_URL } from "@/lib/constants";
 import { trackInitiateCheckout } from "@/lib/pixel";
@@ -33,26 +32,6 @@ export default function OfferSection() {
       title: "Gotowe do puszczenia w kilka sekund",
       desc: "Działa jak prosta losowarka — wystarczy nacisnąć pauzę w dowolnym momencie.",
     },
-  ];
-
-  const stepsA = [
-    { n: "1", t: "Zatrzymuję się" },
-    { n: "2", t: "Słucham" },
-    { n: "3", t: "Powtarzam" },
-    { n: "4", t: "Pytam" },
-  ];
-
-  const stepsB = [
-    { n: "1", t: "Nie doradzam" },
-    { n: "2", t: "Nie oceniam" },
-    { n: "3", t: "Nie przerywam" },
-    { n: "4", t: "Nie naprawiam" },
-  ];
-
-  const prompts = [
-    "„Gdy nie wiem, co odpowiedzieć…”",
-    "„Gdy chcę dopytać…”",
-    "„Gdy chcę tylko być obok…”",
   ];
 
   return (
@@ -97,104 +76,7 @@ export default function OfferSection() {
           })}
         </div>
 
-        {/* 2. BONUSY DLA WAS: 2 karty na trudny moment */}
-        <div className="rounded-3xl border border-granat/15 bg-krem p-6 sm:p-10 shadow-md mb-12">
-          <div className="flex items-center gap-2 text-burgund mb-2">
-            <Gift className="w-5 h-5" />
-            <span className="text-xs font-bold uppercase tracking-wider">
-              DODATKOWO W ZESTAWIE
-            </span>
-          </div>
-
-          <h3 className="font-heading text-2xl sm:text-3xl font-bold text-granat mb-3">
-            Dwie gotowe karty pomocnicze na trudny moment
-          </h3>
-          <p className="text-sm sm:text-base text-granat/80 max-w-2xl mb-8 leading-relaxed">
-            Bo najtrudniej rozmawia się wtedy, kiedy w głowie jest pusto albo zaczynają brać górę emocje. Karty możesz wydrukować na lodówkę lub zapisać w telefonie.
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
-            
-            {/* Karta 1: Słuchanie w 60 sekund */}
-            <div className="rounded-2xl border border-granat/10 bg-[#FAF7F0] p-5 sm:p-6 shadow-sm flex flex-col justify-between">
-              <div>
-                <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-burgund block mb-1">
-                  Karta 01 · Na lodówkę
-                </span>
-                <h4 className="font-heading text-lg font-bold text-granat mb-4">
-                  Słuchanie w 60 sekund
-                </h4>
-
-                <div className="grid grid-cols-2 gap-3 pt-3 border-t border-granat/10">
-                  <div>
-                    <span className="text-[11px] font-bold uppercase text-burgund block mb-1.5">
-                      Gdy słucham
-                    </span>
-                    <ul className="space-y-1 text-xs text-granat/85">
-                      {stepsA.map((s) => (
-                        <li key={s.n} className="flex items-center gap-1.5">
-                          <span className="font-bold text-burgund">{s.n}.</span>
-                          <span>{s.t}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="border-l border-granat/10 pl-3">
-                    <span className="text-[11px] font-bold uppercase text-burgund block mb-1.5">
-                      Czego nie robię
-                    </span>
-                    <ul className="space-y-1 text-xs text-granat/85">
-                      {stepsB.map((s) => (
-                        <li key={s.n} className="flex items-center gap-1.5">
-                          <span className="font-bold text-burgund">{s.n}.</span>
-                          <span>{s.t}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              <div className="text-[10px] uppercase tracking-widest text-granat/50 text-center border-t border-granat/10 pt-2.5 mt-4">
-                Szczęśliwi Razem
-              </div>
-            </div>
-
-            {/* Karta 2: Co powiedzieć, gdy... */}
-            <div className="rounded-2xl border border-granat/10 bg-[#FAF7F0] p-5 sm:p-6 shadow-sm flex flex-col justify-between">
-              <div>
-                <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-burgund block mb-1">
-                  Karta 02 · Gotowe zdania
-                </span>
-                <h4 className="font-heading text-lg font-bold text-granat mb-1.5">
-                  Co powiedzieć, gdy…
-                </h4>
-                <p className="text-xs text-granat/70 mb-4">
-                  Gotowe podpowiedzi, gdy nie wiesz jak zareagować.
-                </p>
-
-                <div className="space-y-2 pt-3 border-t border-granat/10">
-                  {prompts.map((p, idx) => (
-                    <div
-                      key={idx}
-                      className="text-xs italic text-granat/90 bg-krem/70 rounded-lg px-3 py-1.5 border border-granat/5"
-                    >
-                      {p}
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="text-[10px] uppercase tracking-widest text-granat/50 text-center border-t border-granat/10 pt-2.5 mt-4">
-                Szczęśliwi Razem
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        {/* 3. Pudełko oferty i CTA */}
+        {/* 2. Pudełko oferty i CTA */}
         <div className="max-w-xl mx-auto rounded-3xl border-2 border-granat/20 bg-krem p-8 sm:p-10 shadow-xl text-center">
           <span className="text-xs font-bold uppercase tracking-widest text-burgund bg-roz px-3 py-1 rounded-full inline-block mb-4">
             PEŁNY PAKIET
@@ -212,15 +94,15 @@ export default function OfferSection() {
           <div className="space-y-2.5 text-xs sm:text-sm text-granat/85 text-left max-w-sm mx-auto mb-8">
             <div className="flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-              <span>Komplet 7 filmów z pytaniami (700 pytań)</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-              <span>Dwie karty pomocnicze na trudny moment</span>
+              <span>Komplet 7 talii z pytaniami (700 pytań)</span>
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
               <span>Dożywotni dostęp i odtwarzanie na telefonie / TV</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+              <span>Natychmiastowy dostęp po zakupie</span>
             </div>
           </div>
 
