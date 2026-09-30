@@ -1,19 +1,19 @@
 export default function AboutAuthors() {
   return (
     <section className="bg-granat text-krem py-14 sm:py-20 border-b border-krem/10">
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col sm:flex-row items-center gap-8 sm:gap-12">
-          {/* Zdjęcie autorów */}
-          <div className="shrink-0">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 lg:gap-16">
+          {/* Zdjęcie autorów - powiększone */}
+          <div className="shrink-0 w-full sm:w-auto flex justify-center">
             <picture>
               <source srcSet="/images/about-ula-krzysiek.webp" type="image/webp" />
               <img
                 src="/images/about-ula-krzysiek.jpg"
                 alt="Urszula i Krzysztof Głowaccy"
-                width={160}
-                height={160}
+                width={320}
+                height={320}
                 loading="lazy"
-                className="w-36 h-36 sm:w-44 sm:h-44 rounded-2xl object-cover shadow-md border-2 border-krem/15"
+                className="w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-3xl object-cover shadow-2xl border-2 sm:border-[3px] border-krem/20"
               />
             </picture>
           </div>
