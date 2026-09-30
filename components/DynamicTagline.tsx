@@ -1,83 +1,68 @@
-"use client";
-
-import { useState, useEffect } from "react";
+import { Smartphone, Pause, Sparkles } from "lucide-react";
 
 export default function DynamicTagline() {
-  const phrases = [
-    "otwierają wartościowe rozmowy.",
-    "pozwalają bliżej się poznać.",
-    "pozwalają na nowo odkrywać siebie nawzajem.",
-    "można użyć w każdym miejscu.",
-  ];
-
-  const [phraseIndex, setPhraseIndex] = useState(0);
-  const [currentText, setCurrentText] = useState("");
-  const [isDeleting, setIsDeleting] = useState(false);
-
-  useEffect(() => {
-    const fullPhrase = phrases[phraseIndex];
-    let timer: NodeJS.Timeout;
-
-    if (!isDeleting) {
-      // Pisanie litera po literze
-      if (currentText.length < fullPhrase.length) {
-        timer = setTimeout(() => {
-          setCurrentText(fullPhrase.slice(0, currentText.length + 1));
-        }, 50);
-      } else {
-        // Pauza po wpisaniu całego tekstu
-        timer = setTimeout(() => {
-          setIsDeleting(true);
-        }, 2200);
-      }
-    } else {
-      // Kasowanie litera po literze
-      if (currentText.length > 0) {
-        timer = setTimeout(() => {
-          setCurrentText(fullPhrase.slice(0, currentText.length - 1));
-        }, 28);
-      } else {
-        // Przejście do kolejnej frazy
-        setIsDeleting(false);
-        setPhraseIndex((prev) => (prev + 1) % phrases.length);
-      }
-    }
-
-    return () => clearTimeout(timer);
-  }, [currentText, isDeleting, phraseIndex, phrases]);
-
   return (
-    <section className="bg-burgund/[0.03] py-10 sm:py-14 border-b border-granat/10 overflow-hidden">
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
+    <section className="bg-burgund/[0.03] py-12 sm:py-16 border-b border-granat/10">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
         
-        {/* Cały blok nagłówka ze stałym ciemnym tekstem i dynamiczną drugą linią */}
-        <div className="w-full max-w-3xl flex flex-col items-center text-center">
-          
-          {/* Stały, całkowicie nieruchomy ciemny tekst */}
-          <h2 className="text-granat font-heading font-bold text-2xl sm:text-3xl md:text-4xl lg:text-[40px] leading-snug tracking-tight">
-            Stopklatki to wirtualne talie kart z&nbsp;pytaniami, które:
-          </h2>
+        {/* Etykieta sekcji */}
+        <span className="text-burgund uppercase tracking-wider text-xs sm:text-sm font-semibold mb-2.5 block">
+          CZYM SĄ STOPKLATKI?
+        </span>
 
-          {/* Dynamiczna linia o dopasowanej, naturalnej interlinii */}
-          <div className="grid grid-cols-1 grid-rows-1 items-center justify-center text-center w-full mt-0.5 sm:mt-1 min-h-[40px] sm:min-h-[50px]">
-            {/* Niewidoczna warstwa rezerwująca maksymalną szerokość/wysokość najdłuższej frazy */}
-            <span
-              className="col-start-1 row-start-1 text-burgund font-heading italic font-bold text-2xl sm:text-3xl md:text-4xl lg:text-[40px] invisible pointer-events-none select-none tracking-tight leading-snug"
-              aria-hidden="true"
-            >
-              pozwalają na nowo odkrywać siebie nawzajem.
-            </span>
+        {/* Główny tytuł wyjaśniający */}
+        <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-granat leading-tight mb-4 max-w-2xl mx-auto">
+          Karty do rozmów dla par — wirtualnie, zawsze pod ręką w telefonie
+        </h2>
 
-            {/* Widoczna, płynnie wpisywana i kasowana fraza */}
-            <span className="col-start-1 row-start-1 text-burgund font-heading italic font-bold text-2xl sm:text-3xl md:text-4xl lg:text-[40px] tracking-tight leading-snug">
-              {currentText}
-              <span
-                className="inline-block w-[3px] sm:w-[4px] h-[0.85em] bg-burgund ml-1 align-baseline animate-pulse"
-                aria-hidden="true"
-              />
-            </span>
+        {/* Zwięzłe wyjaśnienie */}
+        <p className="font-sans text-sm sm:text-base md:text-lg text-granat/85 leading-relaxed max-w-2xl mx-auto mb-8 sm:mb-10">
+          Stopklatki to 7 wirtualnych talii kart w formacie wideo. Działają jak prosta losowarka: włączacie film, naciskacie pauzę w dowolnym momencie i losujecie jedno ze 100 pytań do szczerej rozmowy.
+        </p>
+
+        {/* 3 zwięzłe kafelki podsumowujące produkt */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-left max-w-3xl mx-auto">
+          <div className="bg-krem rounded-2xl p-5 border border-granat/10 shadow-xs flex items-start gap-3.5">
+            <div className="w-9 h-9 rounded-xl bg-roz text-burgund flex items-center justify-center shrink-0 mt-0.5">
+              <Smartphone className="w-5 h-5" />
+            </div>
+            <div>
+              <h3 className="font-heading font-bold text-sm sm:text-base text-granat mb-1">
+                Zawsze w telefonie
+              </h3>
+              <p className="text-xs sm:text-sm text-granat/75 leading-relaxed">
+                Bez fizycznych plansz i pudełek. Dostępne na każdym telefonie i komputerze.
+              </p>
+            </div>
           </div>
 
+          <div className="bg-krem rounded-2xl p-5 border border-granat/10 shadow-xs flex items-start gap-3.5">
+            <div className="w-9 h-9 rounded-xl bg-roz text-burgund flex items-center justify-center shrink-0 mt-0.5">
+              <Pause className="w-5 h-5" />
+            </div>
+            <div>
+              <h3 className="font-heading font-bold text-sm sm:text-base text-granat mb-1">
+                Jedna pauza = pytanie
+              </h3>
+              <p className="text-xs sm:text-sm text-granat/75 leading-relaxed">
+                Format dynamicznego wideo. Zatrzymujecie film w dowolnej chwili i losujecie.
+              </p>
+            </div>
+          </div>
+
+          <div className="bg-krem rounded-2xl p-5 border border-granat/10 shadow-xs flex items-start gap-3.5">
+            <div className="w-9 h-9 rounded-xl bg-roz text-burgund flex items-center justify-center shrink-0 mt-0.5">
+              <Sparkles className="w-5 h-5" />
+            </div>
+            <div>
+              <h3 className="font-heading font-bold text-sm sm:text-base text-granat mb-1">
+                7 talii · 700 pytań
+              </h3>
+              <p className="text-xs sm:text-sm text-granat/75 leading-relaxed">
+                Od lekkich tematów na drogę po głębokie rozmowy o wartościach i namiętności.
+              </p>
+            </div>
+          </div>
         </div>
 
       </div>
