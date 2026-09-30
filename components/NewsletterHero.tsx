@@ -256,7 +256,7 @@ export default function NewsletterHero() {
                 Na co dzień rozmawiacie o zakupach, grafikach i tym, kto odbiera paczkę. Stopklatki pomagają wrócić do rozmów o was: o tym, co was cieszy, czego potrzebujecie i o czym marzycie.
               </p>
               <p>
-                Włączcie film, zatrzymajcie go w dowolnym momencie i odpowiedzcie na pytanie, które się pojawi. Tyle wystarczy, żeby znów się sobą zaciekawić.
+                Włączcie apkę, wybierzcie temat rozmowy, i wylosujcie pytanie, a potem porozmawiajcie. Tyle wystarczy, żeby znów się sobą zaciekawić.
               </p>
             </div>
 
