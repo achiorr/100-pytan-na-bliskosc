@@ -60,10 +60,10 @@ export default function StickyMobileBar() {
       }`}
     >
       <div className="max-w-md mx-auto flex items-center justify-between gap-3">
-        <div className="flex items-center gap-1.5 font-heading text-sm sm:text-base font-bold text-granat">
-          <span>Stopklatki</span>
-          <span className="text-granat/40">·</span>
-          <span className="text-burgund">29 zł</span>
+        <div className="flex items-center gap-2">
+          <span className="font-heading text-sm sm:text-base font-bold text-granat">Stopklatki</span>
+          <span className="text-xs text-granat/60 font-semibold line-through decoration-rose-500 decoration-[1.5px]">67 zł</span>
+          <span className="text-base sm:text-lg font-extrabold text-emerald-600">29 zł</span>
         </div>
 
         <a

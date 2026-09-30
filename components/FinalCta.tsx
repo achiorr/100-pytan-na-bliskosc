@@ -12,9 +12,22 @@ export default function FinalCta() {
           Zróbcie pauzę na dobrą rozmowę
         </h2>
 
-        <p className="font-sans text-base sm:text-lg text-granat/85 leading-relaxed max-w-xl mx-auto mb-8">
+        <p className="font-sans text-base sm:text-lg text-granat/85 leading-relaxed max-w-xl mx-auto mb-6 sm:mb-8">
           7 talii, 700 pytań. Wystarczy jedna pauza, żeby zacząć.
         </p>
+
+        {/* Blok cenowy */}
+        <div className="flex items-center justify-center gap-3 mb-6">
+          <span className="text-xl sm:text-2xl text-granat/70 font-bold line-through decoration-rose-500 decoration-[2.5px]">
+            67 zł
+          </span>
+          <span className="font-heading text-4xl sm:text-5xl font-extrabold text-emerald-600 tracking-tight">
+            29 zł
+          </span>
+          <span className="text-xs font-bold uppercase tracking-wider text-emerald-700 bg-emerald-100/90 px-2.5 py-1 rounded-full border border-emerald-300/80 shadow-xs">
+            Cena premierowa
+          </span>
+        </div>
 
         <div className="w-full sm:w-auto inline-flex flex-col items-center">
           <a
@@ -27,7 +40,7 @@ export default function FinalCta() {
           </a>
 
           <p className="text-xs sm:text-sm text-granat/80 mt-3.5 font-medium text-center">
-            29 zł · cena premierowa · płacicie raz, bez subskrypcji
+            Płacicie raz, bez subskrypcji
           </p>
           <p className="text-[11px] sm:text-xs text-granat/65 mt-1 font-medium text-center">
             Zaraz po płatności dostaniecie maila z dostępem i instrukcją.

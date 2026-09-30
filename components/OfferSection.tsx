@@ -91,12 +91,15 @@ export default function OfferSection() {
             </span>
 
             {/* Blok cenowy */}
-            <div className="mt-5 mb-2 flex items-center justify-center">
-              <span className="font-heading text-4xl sm:text-5xl font-bold text-burgund">
+            <div className="mt-5 mb-2 flex items-center justify-center gap-3 sm:gap-4">
+              <span className="text-2xl sm:text-3xl text-granat/70 font-bold line-through decoration-rose-500 decoration-[3px]">
+                67 zł
+              </span>
+              <span className="font-heading text-5xl sm:text-6xl font-extrabold text-emerald-600 tracking-tight">
                 29 zł
               </span>
             </div>
-            <p className="text-xs text-burgund font-semibold mb-1">
+            <p className="text-xs sm:text-sm text-emerald-700 font-bold mb-1">
               Cena premierowa na start Stopklatek. Docelowa cena to 67 zł.
             </p>
             <p className="text-xs text-granat/75 font-medium">

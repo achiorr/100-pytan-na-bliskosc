@@ -262,12 +262,15 @@ export default function NewsletterHero() {
 
             {/* Główne CTA z ceną premierową (wyśrodkowane) */}
             <div id="hero-cta" className="w-full sm:w-auto flex flex-col items-center text-center gap-3">
-              <div className="flex flex-wrap items-center justify-center gap-2 text-granat">
-                <span className="font-heading text-3xl sm:text-4xl font-bold text-burgund">
+              <div className="flex items-center justify-center gap-3">
+                <span className="text-xl sm:text-2xl text-granat/70 font-bold line-through decoration-rose-500 decoration-[2.5px]">
+                  67 zł
+                </span>
+                <span className="font-heading text-4xl sm:text-5xl font-extrabold text-emerald-600 tracking-tight">
                   29 zł
                 </span>
-                <span className="text-xs sm:text-sm text-granat/75 font-medium">
-                  · cena premierowa (docelowo 67 zł)
+                <span className="text-xs font-bold uppercase tracking-wider text-emerald-700 bg-emerald-100/90 px-2.5 py-1 rounded-full border border-emerald-300/80 shadow-xs">
+                  Cena premierowa
                 </span>
               </div>
 
