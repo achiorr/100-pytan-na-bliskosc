@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="bg-granat text-krem py-12 sm:py-16">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 pb-8 border-b border-krem/15">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
           <div className="flex items-center gap-4">
             <picture>
               <source srcSet="/images/stopka-avatar.webp" type="image/webp" />
@@ -48,10 +48,6 @@ export default function Footer() {
             <span className="text-krem/40">·</span>
             <span>© {new Date().getFullYear()} Szczęśliwi Razem</span>
           </nav>
-        </div>
-
-        <div className="pt-6 text-xs text-krem/50 text-center md:text-left">
-          Ta strona nie jest częścią serwisu Facebook ani Meta Platforms Inc. Ponadto ta strona NIE jest w żaden sposób wspierana przez firmę Facebook. Facebook jest znakiem towarowym firmy Meta Platforms, Inc.
         </div>
       </div>
     </footer>
