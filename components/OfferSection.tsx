@@ -24,13 +24,13 @@ export default function OfferSection() {
     },
     {
       icon: Smartphone,
-      title: "Odtwarzanie na telefonie i TV",
-      desc: "Pionowy format 9:16 dopasowany do ekranu smartfona i dużego telewizora.",
+      title: "Odtwarzanie na telefonie i komputerze",
+      desc: "Z kart możesz korzystać na dowolnym urządzeniu.",
     },
     {
       icon: Zap,
-      title: "Gotowe do puszczenia w kilka sekund",
-      desc: "Działa jak prosta losowarka — wystarczy nacisnąć pauzę w dowolnym momencie.",
+      title: "Zawsze przy tobie",
+      desc: "Nie potrzebujesz wielkich plansz, czy pudełek - karty są dostępne zawsze w twoim telefonie.",
     },
   ];
 
@@ -44,7 +44,7 @@ export default function OfferSection() {
             PEŁEN ZESTAW
           </span>
           <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-granat leading-tight">
-            Wszystkie 7 talii w jednym pakiecie
+            Wszystkie 7 wirtualnych talii w jednym pakiecie
           </h2>
           <p className="text-base sm:text-lg text-granat/80 mt-3.5 leading-relaxed">
             Pobierz wszystkie 7 talii - w sumie 700 pytań na bliskość i miej pod ręką gotowy sposób na dobrą rozmowę we dwoje.
@@ -111,7 +111,7 @@ export default function OfferSection() {
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-              <span>Dożywotni dostęp i odtwarzanie na telefonie / TV</span>
+              <span>Dożywotni dostęp i odtwarzanie na telefonie / komputerze</span>
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
