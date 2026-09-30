@@ -42,6 +42,7 @@ export default function HowToUse() {
           </p>
         </div>
 
+        {/* 3 pierwsze zasady */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {rules.slice(0, 3).map((rule, idx) => (
             <div
@@ -61,6 +62,7 @@ export default function HowToUse() {
           ))}
         </div>
 
+        {/* 2 kolejne zasady */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-5 max-w-3xl mx-auto">
           {rules.slice(3, 5).map((rule, idx) => (
             <div
@@ -79,6 +81,19 @@ export default function HowToUse() {
             </div>
           ))}
         </div>
+
+        {/* Zdjęcie autorów pod zasadami */}
+        <div className="mt-10 sm:mt-14 max-w-3xl mx-auto">
+          <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-granat/15 shadow-xl aspect-[4/3] sm:aspect-[16/10] bg-krem">
+            <img
+              src="/images/ula-krzysiek-kanapa.jpg"
+              alt="Ula i Krzysiek Głowaccy rozmawiający ze sobą"
+              className="w-full h-full object-cover object-center"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
       </div>
     </section>
   );
