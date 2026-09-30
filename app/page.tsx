@@ -5,7 +5,6 @@ import HowToUse from "@/components/HowToUse";
 import WhatInside from "@/components/WhatInside";
 import AboutAuthors from "@/components/AboutAuthors";
 import OfferSection from "@/components/OfferSection";
-import BottomCta from "@/components/BottomCta";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -29,13 +28,10 @@ export default function Home() {
       {/* 6. O autorach (@szczesliwi_razem) */}
       <AboutAuthors />
 
-      {/* 7. Pełna sekcja oferty (cena 19 zł + co w środku + bonusy) */}
+      {/* 7. Pełna sekcja oferty */}
       <OfferSection />
 
-      {/* 8. Końcowe CTA */}
-      <BottomCta />
-
-      {/* 9. Stopka */}
+      {/* 8. Stopka */}
       <Footer />
     </main>
   );
