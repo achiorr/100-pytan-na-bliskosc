@@ -12,12 +12,12 @@ export default function DynamicTagline() {
 
         {/* Główny tytuł wyjaśniający */}
         <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-granat leading-tight mb-4 max-w-2xl mx-auto">
-          Karty do rozmów dla par — wirtualnie, zawsze pod ręką w telefonie
+          Wirtualne karty do rozmów dla par
         </h2>
 
         {/* Zwięzłe wyjaśnienie */}
         <p className="font-sans text-sm sm:text-base md:text-lg text-granat/85 leading-relaxed max-w-2xl mx-auto mb-8 sm:mb-10">
-          Stopklatki to 7 wirtualnych talii kart w formacie wideo. Działają jak prosta losowarka: włączacie film, naciskacie pauzę w dowolnym momencie i losujecie jedno ze 100 pytań do szczerej rozmowy.
+          Stopklatki to 7 wirtualnych talii kart w apce. Działają jak prosta maszyna losująca: włączasz, naciskasz pauzę w dowolnym momencie i macie jedno pytanie do rozmowy.
         </p>
 
         {/* 3 zwięzłe kafelki podsumowujące produkt */}
