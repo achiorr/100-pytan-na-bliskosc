@@ -28,19 +28,23 @@ export default function Footer() {
           </div>
 
           <nav className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs sm:text-sm text-krem/80">
-            <Link
-              href="#polityka"
+            <a
+              href="https://szczesliwi-razem.pl/polityka-prywatnosci"
+              target="_blank"
+              rel="noopener noreferrer"
               className="hover:text-krem transition-colors underline-offset-4 hover:underline"
             >
               Polityka prywatności
-            </Link>
+            </a>
             <span className="text-krem/40">·</span>
-            <Link
-              href="#regulamin"
+            <a
+              href="https://szczesliwi-razem.pl/regulamin"
+              target="_blank"
+              rel="noopener noreferrer"
               className="hover:text-krem transition-colors underline-offset-4 hover:underline"
             >
               Regulamin
-            </Link>
+            </a>
             <span className="text-krem/40">·</span>
             <span>© {new Date().getFullYear()} Szczęśliwi Razem</span>
           </nav>
