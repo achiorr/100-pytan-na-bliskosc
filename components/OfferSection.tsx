@@ -104,16 +104,51 @@ export default function OfferSection() {
             </p>
           </div>
 
-          <div className="space-y-2.5 text-xs sm:text-sm text-granat/85 text-left max-w-sm mx-auto mb-8">
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-              <span>Komplet 7 talii z pytaniami (700 pytań)</span>
+          <div className="space-y-3.5 text-xs sm:text-sm text-granat/85 text-left max-w-md mx-auto mb-8 bg-kremDim/60 p-4 sm:p-5 rounded-2xl border border-granat/10">
+            <div className="flex items-start gap-2.5">
+              <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+              <div className="w-full">
+                <span className="font-semibold text-granat block">
+                  7 tematycznych talii z pytaniami na temat:
+                </span>
+                <ul className="mt-2 space-y-1.5 text-[11px] sm:text-xs text-granat/85">
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-burgund shrink-0" />
+                    <span><strong>Na rozgrzewkę</strong> — lekki start i odrobina zabawy</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-burgund shrink-0" />
+                    <span><strong>My</strong> — o tym, kim jesteście jako para</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-burgund shrink-0" />
+                    <span><strong>Emocje i bliskość</strong> — o uczuciach i potrzebach</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-burgund shrink-0" />
+                    <span><strong>Codzienność</strong> — o wspólnym życiu i wsparciu</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-burgund shrink-0" />
+                    <span><strong>Fundamenty</strong> — o wartościach i tym, co Was łączy</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-burgund shrink-0" />
+                    <span><strong>Marzenia i przyszłość</strong> — o tym, co chcecie zbudować</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-burgund shrink-0" />
+                    <span><strong>Pożądanie i namiętność</strong> — o intymności i namiętności</span>
+                  </li>
+                </ul>
+              </div>
             </div>
-            <div className="flex items-center gap-2">
+
+            <div className="flex items-center gap-2.5 pt-1 border-t border-granat/10">
               <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
               <span>Dożywotni dostęp i odtwarzanie na telefonie / komputerze</span>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2.5">
               <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
               <span>Natychmiastowy dostęp po zakupie</span>
             </div>
