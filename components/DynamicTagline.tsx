@@ -57,11 +57,23 @@ export default function DynamicTagline() {
           <span>W SKRÓCIE</span>
         </div>
 
-        {/* Dynamiczny napis z efektem pisania i kasowania */}
-        <div className="min-h-[130px] sm:min-h-[140px] md:min-h-[160px] flex items-center justify-center">
-          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-bold tracking-tight text-granat leading-[1.3] max-w-3xl">
+        {/* Kontener o stałej wysokości z wykorzystaniem CSS Grid stack (zero skakania tekstu) */}
+        <div className="grid grid-cols-1 grid-rows-1 items-center justify-center text-center w-full max-w-3xl">
+          {/* Niewidoczna warstwa blokująca maksymalną wysokość tekstu na stałe */}
+          <h2
+            className="col-start-1 row-start-1 font-heading text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-bold tracking-tight text-granat leading-[1.3] invisible pointer-events-none select-none"
+            aria-hidden="true"
+          >
             Stopklatki to wirtualne talie kart z&nbsp;pytaniami, które{" "}
-            <span className="text-burgund inline-block font-heading italic font-bold">
+            <span className="font-heading italic font-bold">
+              pozwalają na nowo odkrywać siebie nawzajem.
+            </span>
+          </h2>
+
+          {/* Widoczna warstwa z aktualnie animowanym tekstem */}
+          <h2 className="col-start-1 row-start-1 font-heading text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-bold tracking-tight text-granat leading-[1.3]">
+            Stopklatki to wirtualne talie kart z&nbsp;pytaniami, które{" "}
+            <span className="text-burgund font-heading italic font-bold">
               {currentText}
               <span
                 className="inline-block w-[3px] sm:w-[4px] h-[0.9em] bg-burgund ml-1 align-baseline animate-pulse"
