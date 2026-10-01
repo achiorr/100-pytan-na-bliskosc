@@ -3,6 +3,7 @@ import NewsletterHero from "@/components/NewsletterHero";
 import DynamicTagline from "@/components/DynamicTagline";
 import HowToUse from "@/components/HowToUse";
 import WhatInside from "@/components/WhatInside";
+import HowQuestionsCreated from "@/components/HowQuestionsCreated";
 import ForWhom from "@/components/ForWhom";
 import AboutAuthors from "@/components/AboutAuthors";
 import OfferSection from "@/components/OfferSection";
@@ -20,7 +21,7 @@ export default function Home() {
       {/* 2. Hero z demo */}
       <NewsletterHero />
 
-      {/* Blok dynamicznego napisu zaraz pod hero */}
+      {/* Blok wprowadzający zaraz pod hero */}
       <DynamicTagline />
 
       {/* 3. Jak korzystać ze Stopklatek */}
@@ -29,22 +30,25 @@ export default function Home() {
       {/* 4. Co jest w poszczególnych taliach */}
       <WhatInside />
 
-      {/* 5. Dla kogo są Stopklatki */}
+      {/* 5. Jak powstały pytania? (Podstawy naukowe i metodologia) */}
+      <HowQuestionsCreated />
+
+      {/* 6. Dla kogo są Stopklatki */}
       <ForWhom />
 
-      {/* 6. Kto za tym stoi? */}
+      {/* 7. Kto za tym stoi? */}
       <AboutAuthors />
 
-      {/* 7. Pełen zestaw i oferta z ceną */}
+      {/* 8. Pełen zestaw i oferta z ceną */}
       <OfferSection />
 
-      {/* 8. Najczęstsze pytania */}
+      {/* 9. Najczęstsze pytania */}
       <FAQ />
 
-      {/* 9. Końcowe wezwanie do zakupu */}
+      {/* 10. Końcowe wezwanie do zakupu */}
       <FinalCta />
 
-      {/* 10. Stopka */}
+      {/* 11. Stopka */}
       <Footer />
 
       {/* Przyklejony pasek na dole na urządzeniach mobilnych */}

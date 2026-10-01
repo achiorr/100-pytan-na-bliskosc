@@ -23,7 +23,7 @@ export default function ForWhom() {
   ];
 
   return (
-    <section className="bg-kremDim py-14 sm:py-20 border-b border-granat/10">
+    <section className="bg-krem py-14 sm:py-20 border-b border-granat/10">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         
         {/* Nagłówek sekcji */}
@@ -41,7 +41,7 @@ export default function ForWhom() {
           {items.map((item, idx) => (
             <div
               key={idx}
-              className="rounded-2xl border border-granat/10 bg-krem p-6 shadow-sm flex flex-col justify-between hover:border-burgund/30 transition-colors"
+              className="rounded-2xl border border-granat/10 bg-kremDim p-6 shadow-xs flex flex-col justify-between hover:border-burgund/30 transition-colors"
             >
               <div>
                 <div className="w-8 h-8 rounded-full bg-roz text-burgund font-heading font-bold flex items-center justify-center mb-4 text-sm shrink-0">
