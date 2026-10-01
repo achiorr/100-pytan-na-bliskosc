@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Play, Pause, Volume2, VolumeX } from "lucide-react";
 import { CHECKOUT_URL, SAMPLE_VIDEO_URL, SAMPLE_VIDEO_POSTER } from "@/lib/constants";
-import { trackInitiateCheckout } from "@/lib/pixel";
+import { trackDemoPause, trackCtaClick } from "@/lib/pixel";
 
 export default function NewsletterHero() {
   const [isPlaying, setIsPlaying] = useState(true);
@@ -34,6 +34,7 @@ export default function NewsletterHero() {
       } else {
         videoRef.current.pause();
         setIsPlaying(false);
+        trackDemoPause("Na rozgrzewkę");
       }
     }
   };
@@ -276,7 +277,7 @@ export default function NewsletterHero() {
 
               <a
                 href={CHECKOUT_URL}
-                onClick={() => trackInitiateCheckout()}
+                onClick={() => trackCtaClick("hero")}
                 className="w-full sm:w-auto inline-flex items-center justify-center rounded-2xl bg-burgund px-8 py-4 text-base sm:text-lg font-semibold text-krem shadow-lg hover:brightness-90 hover:shadow-xl transition-all duration-200 group"
               >
                 Kupuję cały zestaw za 29 zł

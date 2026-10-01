@@ -1,7 +1,7 @@
 "use client";
 
 import { CHECKOUT_URL } from "@/lib/constants";
-import { trackInitiateCheckout } from "@/lib/pixel";
+import { trackCtaClick } from "@/lib/pixel";
 
 export default function FinalCta() {
   return (
@@ -32,7 +32,7 @@ export default function FinalCta() {
         <div className="w-full sm:w-auto inline-flex flex-col items-center">
           <a
             href={CHECKOUT_URL}
-            onClick={() => trackInitiateCheckout()}
+            onClick={() => trackCtaClick("stopka")}
             className="w-full sm:w-auto inline-flex items-center justify-center rounded-2xl bg-burgund px-8 sm:px-10 py-4 sm:py-5 text-base sm:text-lg font-semibold text-krem shadow-lg hover:brightness-90 hover:shadow-xl transition-all duration-200 group"
           >
             Kupuję cały zestaw za 29 zł

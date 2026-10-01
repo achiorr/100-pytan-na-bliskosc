@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import Script from "next/script";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import FacebookPixel from "@/components/FacebookPixel";
-import GoogleAnalytics from "@/components/GoogleAnalytics";
+import CookieBanner from "@/components/CookieBanner";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -52,10 +54,37 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Montserrat:ital,wght@0,300..900;1,300..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
           rel="stylesheet"
         />
+        {/* Google Consent Mode v2 Default Configuration */}
+        <Script
+          id="google-consent-mode"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+
+              var isGranted = false;
+              try {
+                isGranted = document.cookie.indexOf('cookie_consent=granted') !== -1 || localStorage.getItem('cookie_consent') === 'granted';
+              } catch(e) {}
+
+              var defaultStatus = isGranted ? 'granted' : 'denied';
+
+              gtag('consent', 'default', {
+                'analytics_storage': defaultStatus,
+                'ad_storage': defaultStatus,
+                'ad_user_data': defaultStatus,
+                'ad_personalization': defaultStatus,
+                'wait_for_update': 500
+              });
+            `,
+          }}
+        />
       </head>
       <body className="min-h-screen bg-krem font-sans text-granat antialiased selection:bg-burgund selection:text-krem">
+        <GoogleAnalytics gaId="G-2WRR61JWYS" />
         <FacebookPixel />
-        <GoogleAnalytics />
+        <CookieBanner />
         {children}
       </body>
     </html>

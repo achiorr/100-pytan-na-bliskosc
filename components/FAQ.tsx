@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { trackFaqOpen } from "@/lib/pixel";
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -26,6 +27,9 @@ export default function FAQ() {
   ];
 
   const toggle = (idx: number) => {
+    if (openIndex !== idx) {
+      trackFaqOpen(faqs[idx].q);
+    }
     setOpenIndex(openIndex === idx ? null : idx);
   };
 

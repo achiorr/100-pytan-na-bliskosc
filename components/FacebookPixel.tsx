@@ -17,6 +17,19 @@ export default function FacebookPixel() {
             t.src=v;s=b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t,s)}(window, document,'script',
             'https://connect.facebook.net/en_US/fbevents.js');
+
+            // Default: revoke consent until granted by user
+            try {
+              var isGranted = document.cookie.indexOf('cookie_consent=granted') !== -1 || localStorage.getItem('cookie_consent') === 'granted';
+              if (isGranted) {
+                fbq('consent', 'grant');
+              } else {
+                fbq('consent', 'revoke');
+              }
+            } catch(e) {
+              fbq('consent', 'revoke');
+            }
+
             fbq('init', '${FB_PIXEL_ID}');
             fbq('track', 'PageView');
           `,

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { CHECKOUT_URL } from "@/lib/constants";
-import { trackInitiateCheckout } from "@/lib/pixel";
+import { trackCtaClick } from "@/lib/pixel";
 
 export default function StickyMobileBar() {
   const [isVisible, setIsVisible] = useState(false);
@@ -68,7 +68,7 @@ export default function StickyMobileBar() {
 
         <a
           href={CHECKOUT_URL}
-          onClick={() => trackInitiateCheckout()}
+          onClick={() => trackCtaClick("sticky")}
           className="inline-flex items-center justify-center rounded-xl bg-burgund px-5 py-2.5 text-sm font-semibold text-krem shadow-md hover:brightness-90 active:scale-95 transition-all duration-150 group shrink-0"
         >
           Kupuję

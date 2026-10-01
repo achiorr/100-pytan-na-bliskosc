@@ -8,7 +8,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import { CHECKOUT_URL } from "@/lib/constants";
-import { trackInitiateCheckout } from "@/lib/pixel";
+import { trackCtaClick } from "@/lib/pixel";
 
 export default function OfferSection() {
   const whatYouGet = [
@@ -159,7 +159,7 @@ export default function OfferSection() {
 
           <a
             href={CHECKOUT_URL}
-            onClick={() => trackInitiateCheckout()}
+            onClick={() => trackCtaClick("oferta")}
             className="w-full inline-flex items-center justify-center rounded-2xl bg-burgund px-8 py-4 text-base sm:text-lg font-semibold text-krem shadow-lg hover:brightness-90 hover:shadow-xl transition-all duration-200 group"
           >
             Kupuję cały zestaw za 29 zł

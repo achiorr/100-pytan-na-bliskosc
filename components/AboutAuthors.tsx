@@ -1,7 +1,7 @@
 "use client";
 
 import { CHECKOUT_URL } from "@/lib/constants";
-import { trackInitiateCheckout } from "@/lib/pixel";
+import { trackCtaClick } from "@/lib/pixel";
 
 export default function AboutAuthors() {
   return (
@@ -45,7 +45,7 @@ export default function AboutAuthors() {
 
             <a
               href={CHECKOUT_URL}
-              onClick={() => trackInitiateCheckout()}
+              onClick={() => trackCtaClick("ceny")}
               className="w-full sm:w-auto inline-flex items-center justify-center rounded-2xl bg-burgund px-8 py-4 text-base sm:text-lg font-semibold text-krem shadow-lg hover:brightness-110 hover:shadow-xl transition-all duration-200 group"
             >
               Kupuję cały zestaw za 29 zł
