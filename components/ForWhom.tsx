@@ -8,7 +8,7 @@ export default function ForWhom() {
     },
     {
       num: "2",
-      title: "…chcecie spędzać ze sobą więcej „dobrego” czasu",
+      title: "…chcecie spędzać ze sobą więcej dobrego czasu",
       desc: "Nie obok siebie przed ekranem, tylko naprawdę razem. Ze śmiechem, wspomnieniami i odkrywaniem siebie na nowo.",
       decks: "Na rozgrzewkę oraz My",
     },
@@ -39,7 +39,7 @@ export default function ForWhom() {
             Dla kogo są Stopklatki?
           </h2>
           <p className="text-sm sm:text-base text-granat/80 mt-3 leading-relaxed">
-            Sięgnijcie po Stopklatki, jeśli:
+            Sięgnijcie po nie, gdy:
           </p>
         </div>
 
