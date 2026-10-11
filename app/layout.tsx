@@ -3,6 +3,7 @@ import Script from "next/script";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import FacebookPixel from "@/components/FacebookPixel";
 import CookieBanner from "@/components/CookieBanner";
+import CheckoutLinkDecorator from "@/components/CheckoutLinkDecorator";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -85,6 +86,7 @@ export default function RootLayout({
         <GoogleAnalytics gaId="G-2WRR61JWYS" />
         <FacebookPixel />
         <CookieBanner />
+        <CheckoutLinkDecorator />
         {children}
       </body>
     </html>
