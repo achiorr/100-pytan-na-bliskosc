@@ -72,10 +72,28 @@ export const trackCtaClick = (location: string) => {
     });
   }
 
-  // 2. Meta Pixel: InitiateCheckout
+  // 2. Meta Pixel: AddToCart (sygnał do optymalizacji kampanii, wysyłany
+  //    jeszcze na stopklatki.pl, gdzie jest identyfikator kliknięcia z reklamy)
+  //    oraz InitiateCheckout (zostawiony dla ciągłości raportów).
   if (typeof window !== "undefined" && typeof window.fbq === "function") {
+    window.fbq("track", "AddToCart", {
+      content_name: contentName,
+      content_type: "product",
+      content_ids: ["stopklatki"],
+      value: value,
+      currency: currency,
+    });
     window.fbq("track", "InitiateCheckout", {
       content_name: contentName,
+      value: value,
+      currency: currency,
+    });
+  }
+
+  // 3. GA4: add_to_cart (spójnie z Meta)
+  if (typeof window !== "undefined" && typeof window.gtag === "function") {
+    window.gtag("event", "add_to_cart", {
+      items: [{ item_name: contentName, price: value }],
       value: value,
       currency: currency,
     });
