@@ -31,7 +31,16 @@ export default function FacebookPixel() {
             }
 
             fbq('init', '${FB_PIXEL_ID}');
-            fbq('track', 'PageView');
+            // Wspólny identyfikator PageView dla piksela i API konwersji
+            // (deduplikacja) — odczytuje go komponent MetaServerPageView.
+            try {
+              window.__fbPageViewId = (window.crypto && window.crypto.randomUUID)
+                ? window.crypto.randomUUID()
+                : Date.now() + '-' + Math.random().toString(36).slice(2, 10);
+            } catch(e) {
+              window.__fbPageViewId = Date.now() + '-' + Math.random().toString(36).slice(2, 10);
+            }
+            fbq('track', 'PageView', {}, { eventID: window.__fbPageViewId });
           `,
         }}
       />

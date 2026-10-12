@@ -1,3 +1,5 @@
+import { newEventId, sendServerEvent } from "@/lib/metaCapi";
+
 export const FB_PIXEL_ID = process.env.NEXT_PUBLIC_FB_PIXEL_ID || "932014270181668";
 export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || "G-2WRR61JWYS";
 
@@ -34,15 +36,18 @@ export interface LeadParams {
 export const trackLead = (params?: LeadParams) => {
   const contentName = params?.content_name ?? "100 pytań na bliskość";
 
-  // 1. Meta Pixel
+  // 1. Meta Pixel + API konwersji (wspólny event_id do deduplikacji)
+  const leadData = {
+    content_name: contentName,
+    content_category: params?.content_category ?? "Lead Magnet",
+    value: params?.value ?? 0,
+    currency: params?.currency ?? "PLN",
+  };
+  const leadEventId = newEventId();
   if (typeof window !== "undefined" && typeof window.fbq === "function") {
-    window.fbq("track", "Lead", {
-      content_name: contentName,
-      content_category: params?.content_category ?? "Lead Magnet",
-      value: params?.value ?? 0,
-      currency: params?.currency ?? "PLN",
-    });
+    window.fbq("track", "Lead", leadData, { eventID: leadEventId });
   }
+  sendServerEvent("Lead", leadEventId, leadData);
 
   // 2. Google Analytics 4
   if (typeof window !== "undefined" && typeof window.gtag === "function") {
@@ -75,20 +80,27 @@ export const trackCtaClick = (location: string) => {
   // 2. Meta Pixel: AddToCart (sygnał do optymalizacji kampanii, wysyłany
   //    jeszcze na stopklatki.pl, gdzie jest identyfikator kliknięcia z reklamy)
   //    oraz InitiateCheckout (zostawiony dla ciągłości raportów).
+  //    Oba zdarzenia idą też przez API konwersji z tym samym event_id.
+  const addToCartData = {
+    content_name: contentName,
+    content_type: "product",
+    content_ids: ["stopklatki"],
+    value: value,
+    currency: currency,
+  };
+  const checkoutData = {
+    content_name: contentName,
+    value: value,
+    currency: currency,
+  };
+  const addToCartId = newEventId();
+  const checkoutId = newEventId();
   if (typeof window !== "undefined" && typeof window.fbq === "function") {
-    window.fbq("track", "AddToCart", {
-      content_name: contentName,
-      content_type: "product",
-      content_ids: ["stopklatki"],
-      value: value,
-      currency: currency,
-    });
-    window.fbq("track", "InitiateCheckout", {
-      content_name: contentName,
-      value: value,
-      currency: currency,
-    });
+    window.fbq("track", "AddToCart", addToCartData, { eventID: addToCartId });
+    window.fbq("track", "InitiateCheckout", checkoutData, { eventID: checkoutId });
   }
+  sendServerEvent("AddToCart", addToCartId, addToCartData);
+  sendServerEvent("InitiateCheckout", checkoutId, checkoutData);
 
   // 3. GA4: add_to_cart (spójnie z Meta)
   if (typeof window !== "undefined" && typeof window.gtag === "function") {
@@ -135,7 +147,9 @@ export const setCookieConsent = (consent: "granted" | "denied") => {
   if (typeof window.fbq === "function") {
     if (consent === "granted") {
       window.fbq("consent", "grant");
-      window.fbq("track", "PageView");
+      const pageViewId = newEventId();
+      window.fbq("track", "PageView", {}, { eventID: pageViewId });
+      sendServerEvent("PageView", pageViewId);
     } else {
       window.fbq("consent", "revoke");
     }
