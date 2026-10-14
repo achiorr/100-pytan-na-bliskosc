@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { sendServerEvent } from "@/lib/metaCapi";
+import { ensureMetaIdentifiers, sendServerEvent } from "@/lib/metaCapi";
 
 declare global {
   interface Window {
@@ -15,6 +15,8 @@ declare global {
 // Po udzieleniu zgody PageView wysyła setCookieConsent w lib/pixel.ts.
 export default function MetaServerPageView() {
   useEffect(() => {
+    // Identyfikatory gotowe od razu po wejściu (dla osób ze zgodą na cookies).
+    ensureMetaIdentifiers();
     let attempts = 0;
     const timer = window.setInterval(() => {
       attempts += 1;
