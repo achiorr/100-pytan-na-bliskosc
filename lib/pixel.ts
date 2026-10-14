@@ -1,4 +1,4 @@
-import { newEventId, sendServerEvent } from "@/lib/metaCapi";
+import { clearMetaIdentifiers, ensureMetaIdentifiers, newEventId, sendServerEvent } from "@/lib/metaCapi";
 
 export const FB_PIXEL_ID = process.env.NEXT_PUBLIC_FB_PIXEL_ID || "932014270181668";
 export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || "G-2WRR61JWYS";
@@ -133,6 +133,8 @@ export const setCookieConsent = (consent: "granted" | "denied") => {
     localStorage.setItem("cookie_consent", consent);
   } catch {}
 
+  if (consent === "denied") clearMetaIdentifiers();
+
   // Google Consent Mode v2 update
   if (typeof window.gtag === "function") {
     window.gtag("consent", "update", {
@@ -146,6 +148,7 @@ export const setCookieConsent = (consent: "granted" | "denied") => {
   // Meta Pixel consent update
   if (typeof window.fbq === "function") {
     if (consent === "granted") {
+      ensureMetaIdentifiers();
       window.fbq("consent", "grant");
       const pageViewId = newEventId();
       window.fbq("track", "PageView", {}, { eventID: pageViewId });

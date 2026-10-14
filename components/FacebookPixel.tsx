@@ -30,7 +30,18 @@ export default function FacebookPixel() {
               fbq('consent', 'revoke');
             }
 
-            fbq('init', '${FB_PIXEL_ID}');
+            // Anonimowy identyfikator odwiedzającego (tylko po zgodzie na cookies),
+            // ten sam, który trafia do API konwersji jako external_id.
+            var skVid = null;
+            try {
+              var vidMatch = document.cookie.match(/(?:^|; )sk_vid=([0-9a-f]{64})/);
+              if (vidMatch && document.cookie.indexOf('cookie_consent=granted') !== -1) skVid = vidMatch[1];
+            } catch(e) {}
+            if (skVid) {
+              fbq('init', '${FB_PIXEL_ID}', { external_id: skVid });
+            } else {
+              fbq('init', '${FB_PIXEL_ID}');
+            }
             // Wspólny identyfikator PageView dla piksela i API konwersji
             // (deduplikacja) — odczytuje go komponent MetaServerPageView.
             try {

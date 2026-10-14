@@ -59,10 +59,13 @@ export async function POST(request: Request) {
   const ua = request.headers.get("user-agent");
   const fbp = pickString(body?.fbp, 200);
   const fbc = pickString(body?.fbc, 500);
+  const externalId = pickString(body?.external_id, 100);
   if (ip) userData.client_ip_address = ip;
   if (ua) userData.client_user_agent = ua;
   if (fbp) userData.fbp = fbp;
   if (fbc) userData.fbc = fbc;
+  // Anonimowy identyfikator odwiedzającego (losowe 64 znaki hex, bez danych osobowych).
+  if (externalId && /^[0-9a-f]{64}$/.test(externalId)) userData.external_id = externalId;
 
   const event: Record<string, unknown> = {
     event_name: eventName,
