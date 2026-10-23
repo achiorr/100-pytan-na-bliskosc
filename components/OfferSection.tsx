@@ -1,5 +1,3 @@
-"use client";
-
 import {
   Video,
   Infinity,
@@ -7,8 +5,7 @@ import {
   Zap,
   CheckCircle2,
 } from "lucide-react";
-import { CHECKOUT_URL } from "@/lib/constants";
-import { trackCtaClick } from "@/lib/pixel";
+import BuyButton from "@/components/BuyButton";
 
 export default function OfferSection() {
   const whatYouGet = [
@@ -35,24 +32,24 @@ export default function OfferSection() {
   ];
 
   return (
-    <section id="oferta" className="bg-kremDim py-16 sm:py-24 border-b border-granat/10">
+    <section id="oferta" className="bg-rozLight py-16 sm:py-24 border-b border-granat/10">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         
         {/* Nagłówek sekcji */}
-        <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-16">
           <span className="text-burgund uppercase tracking-wider text-xs sm:text-sm font-semibold mb-2.5 block">
             PEŁEN ZESTAW
           </span>
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-granat leading-tight">
+          <h2 className="font-heading text-[28px] sm:text-4xl lg:text-5xl font-bold tracking-tight text-granat leading-tight">
             Wszystkie 7 wirtualnych talii w jednym pakiecie
           </h2>
-          <p className="text-base sm:text-lg text-granat/80 mt-3.5 leading-relaxed">
+          <p className="text-[18px] sm:text-lg text-granat/80 mt-3.5 leading-[1.6]">
             Pobierzcie wszystkie 7 talii — w sumie 700 pytań na bliskość i miejcie pod ręką gotowy sposób na dobrą rozmowę we dwoje.
           </p>
         </div>
 
         {/* 1. Kafelki "Co dostajesz" */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mb-10 sm:mb-12">
           {whatYouGet.map((item, idx) => {
             const Icon = item.icon;
             return (
@@ -64,10 +61,10 @@ export default function OfferSection() {
                   <div className="w-10 h-10 rounded-xl bg-burgund/10 text-burgund flex items-center justify-center mb-4">
                     <Icon className="w-5 h-5" />
                   </div>
-                  <h3 className="font-heading font-bold text-base text-granat mb-1.5">
+                  <h3 className="font-heading font-bold text-[18px] sm:text-lg text-granat mb-1.5 leading-snug">
                     {item.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-granat/75 leading-relaxed">
+                  <p className="text-[17px] sm:text-sm text-granat/75 leading-[1.6]">
                     {item.desc}
                   </p>
                 </div>
@@ -76,45 +73,29 @@ export default function OfferSection() {
           })}
         </div>
 
-        {/* 2. Pudełko oferty i CTA */}
-        <div className="max-w-xl mx-auto rounded-3xl border-2 border-granat/20 bg-krem p-8 sm:p-10 shadow-xl text-center">
-          <span className="text-xs font-bold uppercase tracking-widest text-burgund bg-roz px-3.5 py-1 rounded-full inline-block mb-4">
+        {/* 2. Pudełko oferty i cennika */}
+        <div className="max-w-xl mx-auto rounded-3xl border-2 border-granat/20 bg-krem p-6 sm:p-10 shadow-xl text-center">
+          <span className="text-xs sm:text-xs font-bold uppercase tracking-widest text-burgund bg-roz px-3.5 py-1 rounded-full inline-block mb-4">
             CENA PREMIEROWA
           </span>
 
           <div className="mb-6">
-            <h4 className="font-heading text-2xl sm:text-3xl font-bold text-granat block">
+            <h4 className="font-heading text-[26px] sm:text-3xl font-bold text-granat block leading-tight">
               Zestaw 7 talii Stopklatek
             </h4>
-            <span className="text-xs sm:text-sm text-granat/70 font-medium mt-1.5 block">
+            <span className="text-[15px] sm:text-sm text-granat/70 font-medium mt-1.5 block">
               jednorazowy, bezterminowy dostęp · bez subskrypcji
             </span>
-
-            {/* Blok cenowy */}
-            <div className="mt-5 mb-2 flex items-center justify-center gap-3 sm:gap-4">
-              <span className="text-2xl sm:text-3xl text-granat/70 font-bold line-through decoration-rose-500 decoration-[3px]">
-                67 zł
-              </span>
-              <span className="font-heading text-5xl sm:text-6xl font-extrabold text-emerald-600 tracking-tight">
-                29 zł
-              </span>
-            </div>
-            <p className="text-xs sm:text-sm text-emerald-700 font-bold mb-1">
-              Cena premierowa na start Stopklatek. Docelowa cena to 67 zł.
-            </p>
-            <p className="text-xs text-granat/75 font-medium">
-              Zaraz po płatności dostaniecie maila z dostępem i instrukcją.
-            </p>
           </div>
 
-          <div className="space-y-3.5 text-xs sm:text-sm text-granat/85 text-left max-w-md mx-auto mb-8 bg-kremDim/60 p-4 sm:p-5 rounded-2xl border border-granat/10">
+          <div className="space-y-3.5 text-[16px] sm:text-sm text-granat/85 text-left max-w-md mx-auto mb-8 bg-kremDim/60 p-4 sm:p-5 rounded-2xl border border-granat/10">
             <div className="flex items-start gap-2.5">
-              <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+              <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
               <div className="w-full">
                 <span className="font-semibold text-granat block">
                   7 tematycznych talii z pytaniami na temat:
                 </span>
-                <ul className="mt-2 space-y-1.5 text-[11px] sm:text-xs text-granat/85">
+                <ul className="mt-2 space-y-1.5 text-[15px] sm:text-xs text-granat/85">
                   <li className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-burgund shrink-0" />
                     <span><strong>Na rozgrzewkę</strong> — lekki start i odrobina zabawy</span>
@@ -147,26 +128,26 @@ export default function OfferSection() {
               </div>
             </div>
 
-            <div className="flex items-center gap-2.5 pt-1 border-t border-granat/10">
-              <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+            <div className="flex items-center gap-2.5 pt-1.5 border-t border-granat/10">
+              <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
               <span>Dożywotni dostęp i odtwarzanie na telefonie / komputerze</span>
             </div>
             <div className="flex items-center gap-2.5">
-              <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+              <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
               <span>Natychmiastowy dostęp po zakupie</span>
             </div>
           </div>
 
-          <a
-            href={CHECKOUT_URL}
-            onClick={() => trackCtaClick("oferta")}
-            className="w-full inline-flex items-center justify-center rounded-2xl bg-burgund px-8 py-4 text-base sm:text-lg font-semibold text-krem shadow-lg hover:brightness-90 hover:shadow-xl transition-all duration-200 group"
-          >
-            Kupuję cały zestaw za 29 zł
-            <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
-          </a>
+          {/* Przycisk zakupu (ZMIANA 9: widoczny na desktopie i na mobile) */}
+          <div className="flex justify-center">
+            <BuyButton
+              source="oferta"
+              mobileOnly={false}
+              variant="light"
+            />
+          </div>
 
-          <p className="text-[11px] text-granat/60 mt-3.5">
+          <p className="text-[14px] sm:text-[11px] text-granat/60 mt-3.5">
             🔒 Bezpieczna płatność online · Natychmiastowy dostęp po zakupie
           </p>
         </div>

@@ -61,15 +61,15 @@ export default function StickyMobileBar() {
     >
       <div className="max-w-md mx-auto flex items-center justify-between gap-3">
         <div className="flex items-center gap-2">
-          <span className="font-heading text-sm sm:text-base font-bold text-granat">Stopklatki</span>
+          <span className="font-heading text-[16px] font-bold text-granat">Stopklatki</span>
           <span className="text-xs text-granat/60 font-semibold line-through decoration-rose-500 decoration-[1.5px]">67 zł</span>
-          <span className="text-base sm:text-lg font-extrabold text-emerald-600">29 zł</span>
+          <span className="text-xl font-extrabold text-emerald-600">29 zł</span>
         </div>
 
         <a
           href={CHECKOUT_URL}
           onClick={() => trackCtaClick("sticky")}
-          className="inline-flex items-center justify-center rounded-xl bg-burgund px-5 py-2.5 text-sm font-semibold text-krem shadow-md hover:brightness-90 active:scale-95 transition-all duration-150 group shrink-0"
+          className="inline-flex items-center justify-center rounded-xl bg-burgund px-5 py-2.5 text-[15px] font-semibold text-krem shadow-md hover:brightness-90 active:scale-95 transition-all duration-150 group shrink-0 cursor-pointer"
         >
           Kupuję
           <span className="ml-1.5 group-hover:translate-x-0.5 transition-transform">→</span>

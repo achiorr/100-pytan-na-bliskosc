@@ -1,15 +1,21 @@
+import BuyButton from "@/components/BuyButton";
+
 export default function DynamicTagline() {
   return (
-    <section className="bg-burgund/[0.03] py-14 sm:py-20 border-b border-granat/10">
+    <section className="bg-granat text-krem py-14 sm:py-20 border-b border-krem/10">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
         
         {/* Główny nagłówek */}
-        <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-granat leading-tight mb-6 sm:mb-8">
+        <h2 className="font-heading text-[28px] sm:text-3xl md:text-4xl font-bold tracking-tight text-krem leading-tight mb-6 sm:mb-8">
           Można żyć razem, ale obok siebie.
         </h2>
 
         {/* Treść sekcji */}
-        <div className="space-y-4 sm:space-y-5 text-base sm:text-lg text-granat/85 leading-relaxed font-sans max-w-2xl mx-auto">
+        <div className="space-y-4 sm:space-y-5 text-[18px] sm:text-lg text-krem/90 leading-[1.6] font-sans max-w-2xl mx-auto">
+          <p>
+            Na co dzień rozmawiacie o zakupach, grafikach i tym, kto odbiera paczkę. Stopklatki pomagają wrócić do rozmów o was: o tym, co was cieszy, czego potrzebujecie i o czym marzycie.
+          </p>
+
           <p>
             Zatrzymywać się na rozmowach o tym co trzeba zrobić, kupić i załatwić. Na problemach w pracy, planowaniu zakupów i pilnowaniu kiedy trzeba zapłacić rachunki.
           </p>
@@ -19,10 +25,19 @@ export default function DynamicTagline() {
           </p>
 
           <div className="pt-2 sm:pt-4">
-            <p className="font-heading italic text-lg sm:text-xl md:text-2xl text-burgund font-medium leading-snug">
+            <p className="font-heading italic text-[20px] sm:text-xl md:text-2xl text-koral font-medium leading-snug">
               Stopklatki stworzyliśmy po to, by takie chwile były na wyciągnięcie ręki. Jak najczęściej.
             </p>
           </div>
+        </div>
+
+        {/* Przycisk zakupu na mobile (ZMIANA 9: po sekcji Można żyć razem, ukryty na desktopie) */}
+        <div className="mt-10 sm:mt-12 flex justify-center">
+          <BuyButton
+            source="tagline"
+            mobileOnly={true}
+            variant="dark"
+          />
         </div>
 
       </div>

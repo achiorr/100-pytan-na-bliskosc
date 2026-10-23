@@ -37,10 +37,10 @@ export default function HowQuestionsCreated() {
           <span className="text-burgund uppercase tracking-wider text-xs sm:text-sm font-semibold mb-2.5 block">
             NAUKA I PSYCHOLOGIA
           </span>
-          <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-granat leading-tight mb-4">
+          <h2 className="font-heading text-[28px] sm:text-3xl lg:text-4xl font-bold tracking-tight text-granat leading-tight mb-4">
             Jak powstały pytania?
           </h2>
-          <p className="text-sm sm:text-base text-granat/85 leading-relaxed">
+          <p className="text-[18px] sm:text-lg text-granat/85 leading-[1.6]">
             Tematy w Stopklatkach nie są przypadkowe. Wybraliśmy je na podstawie kilkudziesięciu lat badań nad tym, co sprawia, że związki są szczęśliwe i trwałe.
           </p>
         </div>
@@ -52,16 +52,16 @@ export default function HowQuestionsCreated() {
               <BookOpen className="w-6 h-6" />
             </div>
             <div className="space-y-3">
-              <span className="text-xs font-bold uppercase tracking-wider text-burgund">
+              <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-burgund">
                 GŁÓWNY PUNKT WYJŚCIA
               </span>
-              <h3 className="font-heading text-xl sm:text-2xl font-bold text-granat">
+              <h3 className="font-heading text-[22px] sm:text-2xl font-bold text-granat">
                 Model Johna i Julie Gottmanów
               </h3>
-              <p className="text-sm sm:text-base text-granat/85 leading-relaxed">
+              <p className="text-[18px] sm:text-lg text-granat/85 leading-[1.6]">
                 Punktem wyjścia był model Johna i Julie Gottmanów, którzy przez dekady badali tysiące par. Wynika z niego, że silny związek opiera się na kilku filarach: <strong>dobrej znajomości świata drugiej osoby</strong>, <strong>okazywaniu sobie czułości i podziwu</strong>, <strong>zwracaniu się ku sobie w codzienności</strong>, <strong>wspólnych marzeniach i poczuciu sensu</strong>, <strong>zaufaniu i zaangażowaniu</strong>.
               </p>
-              <p className="text-xs sm:text-sm text-burgund font-semibold pt-1">
+              <p className="text-[17px] sm:text-base text-burgund font-semibold pt-1">
                 Każdy z tych filarów ma swoje miejsce w taliach.
               </p>
             </div>
@@ -70,7 +70,7 @@ export default function HowQuestionsCreated() {
 
         {/* 4 podejścia w czytelnych kafelkach */}
         <div className="mb-4">
-          <p className="text-xs sm:text-sm font-semibold text-granat/70 uppercase tracking-wider mb-4 text-center md:text-left">
+          <p className="text-[15px] sm:text-sm font-semibold text-granat/70 uppercase tracking-wider mb-4 text-center md:text-left">
             Wnioski z innych podejść i badań psychologicznych:
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
@@ -86,14 +86,14 @@ export default function HowQuestionsCreated() {
                       <div className="w-9 h-9 rounded-xl bg-roz text-burgund flex items-center justify-center shrink-0">
                         <Icon className="w-5 h-5" />
                       </div>
-                      <span className="text-[11px] font-semibold text-granat/60 bg-granat/5 px-2.5 py-0.5 rounded-full">
+                      <span className="text-xs font-semibold text-granat/70 bg-granat/5 px-2.5 py-0.5 rounded-full">
                         {item.badge}
                       </span>
                     </div>
-                    <h4 className="font-heading font-bold text-base text-granat mb-1.5 leading-snug">
+                    <h4 className="font-heading font-bold text-[18px] sm:text-lg text-granat mb-1.5 leading-snug">
                       {item.title}
                     </h4>
-                    <p className="text-xs sm:text-sm text-granat/80 leading-relaxed">
+                    <p className="text-[17px] sm:text-sm text-granat/80 leading-[1.6]">
                       {item.desc}
                     </p>
                   </div>
@@ -105,10 +105,10 @@ export default function HowQuestionsCreated() {
 
         {/* Dolne podsumowanie: Praktyka i doświadczenie */}
         <div className="mt-8 rounded-2xl border border-granat/10 bg-krem p-6 sm:p-8 text-center max-w-3xl mx-auto shadow-xs">
-          <p className="text-sm sm:text-base text-granat/85 leading-relaxed mb-3">
+          <p className="text-[18px] sm:text-lg text-granat/85 leading-[1.6] mb-3">
             Pytania mają różne poziomy głębokości, od lekkich i zabawnych po bardziej osobiste. Tak właśnie, stopniowo, buduje się bliskość.
           </p>
-          <p className="font-heading italic text-base sm:text-lg text-burgund font-medium leading-relaxed">
+          <p className="font-heading italic text-[19px] sm:text-xl text-burgund font-medium leading-[1.5]">
             Za wszystkim stoi też nasze doświadczenie — zarówno z gabinetu, jak i z naszego życia i związku. Dzięki temu w kartach jest i nauka, i to, co naprawdę dzieje się w rozmowach par.
           </p>
         </div>

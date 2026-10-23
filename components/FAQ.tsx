@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { trackFaqOpen } from "@/lib/pixel";
+import BuyButton from "@/components/BuyButton";
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -40,7 +41,7 @@ export default function FAQ() {
           <span className="text-burgund uppercase tracking-wider text-xs sm:text-sm font-semibold mb-2.5 block">
             PYTANIA
           </span>
-          <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-granat leading-tight">
+          <h2 className="font-heading text-[28px] sm:text-3xl lg:text-4xl font-bold tracking-tight text-granat leading-tight">
             Najczęstsze pytania
           </h2>
         </div>
@@ -56,7 +57,7 @@ export default function FAQ() {
                 <button
                   type="button"
                   onClick={() => toggle(idx)}
-                  className="w-full px-6 py-4 sm:py-5 text-left flex items-center justify-between gap-4 font-heading font-bold text-base sm:text-lg text-granat hover:text-burgund transition-colors cursor-pointer"
+                  className="w-full px-6 py-4 sm:py-5 text-left flex items-center justify-between gap-4 font-heading font-bold text-[18px] sm:text-lg text-granat hover:text-burgund transition-colors cursor-pointer"
                   aria-expanded={isOpen}
                 >
                   <span>{faq.q}</span>
@@ -67,7 +68,7 @@ export default function FAQ() {
                   />
                 </button>
                 {isOpen && (
-                  <div className="px-6 pb-5 pt-1 text-sm sm:text-base text-granat/85 leading-relaxed border-t border-granat/5">
+                  <div className="px-6 pb-5 pt-1 text-[18px] sm:text-base text-granat/85 leading-[1.6] border-t border-granat/5">
                     {faq.a}
                   </div>
                 )}
@@ -75,6 +76,16 @@ export default function FAQ() {
             );
           })}
         </div>
+
+        {/* Przycisk zakupu na mobile (ZMIANA 9: po sekcji FAQ, ukryty na desktopie) */}
+        <div className="mt-10 sm:mt-12 flex justify-center">
+          <BuyButton
+            source="faq"
+            mobileOnly={true}
+            variant="light"
+          />
+        </div>
+
       </div>
     </section>
   );

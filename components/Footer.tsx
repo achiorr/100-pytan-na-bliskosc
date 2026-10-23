@@ -21,13 +21,13 @@ export default function Footer() {
               <p className="font-heading text-base sm:text-lg font-bold text-krem">
                 Urszula i Krzysztof Głowaccy – Szczęśliwi Razem
               </p>
-              <p className="text-xs text-krem/70 mt-0.5">
+              <p className="text-[14px] sm:text-xs text-krem/70 mt-0.5">
                 Czesława Miłosza, Poznań
               </p>
             </div>
           </div>
 
-          <nav className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs sm:text-sm text-krem/80">
+          <nav className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[15px] sm:text-sm text-krem/80">
             <a
               href="https://szczesliwi-razem.pl/polityka-prywatnosci"
               target="_blank"

@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { Play, Pause, Volume2, VolumeX } from "lucide-react";
 import { CHECKOUT_URL, SAMPLE_VIDEO_URL, SAMPLE_VIDEO_POSTER } from "@/lib/constants";
 import { trackDemoPause, trackCtaClick } from "@/lib/pixel";
+import BuyButton from "@/components/BuyButton";
 
 export default function NewsletterHero() {
   const [isPlaying, setIsPlaying] = useState(true);
@@ -96,18 +97,36 @@ export default function NewsletterHero() {
   ];
 
   return (
-    <section className="relative bg-krem py-10 sm:py-16 md:py-20 border-b border-granat/10 overflow-hidden">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+    <section className="relative bg-krem pt-6 pb-12 sm:py-16 md:py-20 border-b border-granat/10 overflow-hidden">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 overflow-hidden lg:overflow-visible">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-6 lg:gap-x-12 items-center">
           
-          {/* Kolumna z grafiką i wideo (Lewa na desktopie) */}
-          <div className="lg:col-span-6 w-full flex flex-col items-center order-2 lg:order-1">
+          {/* 1. Nagłówek i podtytuł (Mobile: pozycja 1 na samej górze; Desktop: prawa strona, wiersz 1) */}
+          <div className="w-full flex flex-col items-center text-center lg:col-span-6 lg:col-start-7 lg:row-start-1 px-4 sm:px-0">
+            {/* Tytuł główny */}
+            <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-granat leading-tight mb-2 sm:mb-2.5 text-center">
+              Stopklatki
+            </h1>
+
+            {/* Podtytuł: Gra dla par (czcionka bezszeryfowa) */}
+            <p className="font-sans text-[16px] sm:text-xl font-bold uppercase tracking-wider text-burgund mb-3 sm:mb-4">
+              Gra dla par
+            </p>
+
+            {/* Zwięzły opis działania (1-2 linie na telefonie) */}
+            <p className="font-sans text-[17px] sm:text-lg text-granat/85 leading-[1.5] max-w-xs sm:max-w-lg mx-auto">
+              Włączcie apkę, wybierzcie temat rozmowy i wylosujcie pytania. Potem porozmawiajcie.
+            </p>
+          </div>
+
+          {/* 2. Kolumna z grafiką i wideo (Mobile: pozycja 2 po tekście; Desktop: lewa strona na oba wiersze) */}
+          <div className="w-full flex flex-col items-center lg:col-span-6 lg:col-start-1 lg:row-start-1 lg:row-span-2 overflow-visible">
             
-            {/* Kontener sceny wachlarza */}
-            <div className="relative w-full max-w-[340px] sm:max-w-[420px] md:max-w-[460px] h-[460px] sm:h-[520px] flex items-center justify-center select-none pt-4 sm:pt-6">
+            {/* Kontener sceny wachlarza - skalowany na małym mobile aby nie wychodził poza ekran */}
+            <div className="relative w-full max-w-[340px] sm:max-w-[420px] md:max-w-[460px] h-[360px] sm:h-[480px] md:h-[520px] flex items-center justify-center select-none pt-2 sm:pt-6 scale-[0.88] sm:scale-100 origin-center">
               
               {/* Ręcznie rysowana strzałka "Kliknij i przetestuj" kierująca na wideo */}
-              <div className="absolute -top-10 sm:-top-11 right-2 sm:right-6 md:right-8 z-40 flex flex-col items-center pointer-events-none select-none">
+              <div className="absolute -top-7 sm:-top-11 right-2 sm:right-6 md:right-8 z-40 flex flex-col items-center pointer-events-none select-none">
                 <span className="font-handwriting text-xl sm:text-2xl font-bold text-burgund rotate-2 tracking-wide drop-shadow-xs whitespace-nowrap">
                   Kliknij i przetestuj
                 </span>
@@ -133,7 +152,7 @@ export default function NewsletterHero() {
               {cardsLeft.map((card) => (
                 <div
                   key={card.id}
-                  className={`absolute w-[180px] sm:w-[220px] md:w-[230px] aspect-[9/16] rounded-2xl sm:rounded-3xl border-2 border-granat/15 bg-krem shadow-xl overflow-hidden pointer-events-none transition-all duration-300 ${card.className}`}
+                  className={`absolute w-[155px] sm:w-[210px] md:w-[230px] aspect-[9/16] rounded-2xl sm:rounded-3xl border-2 border-granat/15 bg-krem shadow-xl overflow-hidden pointer-events-none transition-all duration-300 ${card.className}`}
                 >
                   <img
                     src={card.img}
@@ -154,7 +173,7 @@ export default function NewsletterHero() {
               {cardsRight.map((card) => (
                 <div
                   key={card.id}
-                  className={`absolute w-[180px] sm:w-[220px] md:w-[230px] aspect-[9/16] rounded-2xl sm:rounded-3xl border-2 border-granat/15 bg-krem shadow-xl overflow-hidden pointer-events-none transition-all duration-300 ${card.className}`}
+                  className={`absolute w-[155px] sm:w-[210px] md:w-[230px] aspect-[9/16] rounded-2xl sm:rounded-3xl border-2 border-granat/15 bg-krem shadow-xl overflow-hidden pointer-events-none transition-all duration-300 ${card.className}`}
                 >
                   <img
                     src={card.img}
@@ -174,7 +193,7 @@ export default function NewsletterHero() {
               {/* ŚRODKOWA TALIA (01 · Na rozgrzewkę) — Aktywny odtwarzacz z autostartem */}
               <div 
                 onClick={handleTogglePlay}
-                className="relative w-[210px] sm:w-[250px] md:w-[260px] aspect-[9/16] rounded-2xl sm:rounded-3xl border-2 sm:border-[3px] border-granat/25 bg-granat shadow-2xl overflow-hidden z-30 ring-4 sm:ring-8 ring-krem/80 group cursor-pointer"
+                className="relative w-[190px] sm:w-[245px] md:w-[260px] aspect-[9/16] rounded-2xl sm:rounded-3xl border-2 sm:border-[3px] border-granat/25 bg-granat shadow-2xl overflow-hidden z-30 ring-4 sm:ring-8 ring-krem/80 group cursor-pointer"
                 title="Kliknij, aby zatrzymać lub wznowić wideo"
               >
                 <video
@@ -205,7 +224,7 @@ export default function NewsletterHero() {
                     type="button"
                     onClick={handleToggleMute}
                     aria-label={isMuted ? "Włącz dźwięk" : "Wycisz dźwięk"}
-                    className="pointer-events-auto w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-granat/85 backdrop-blur-sm border border-krem/20 text-krem flex items-center justify-center hover:bg-burgund transition-colors shadow-md"
+                    className="pointer-events-auto w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-granat/85 backdrop-blur-sm border border-krem/20 text-krem flex items-center justify-center hover:bg-burgund transition-colors shadow-md cursor-pointer"
                   >
                     {isMuted ? (
                       <VolumeX className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-krem/80" />
@@ -218,12 +237,12 @@ export default function NewsletterHero() {
                 {/* Dyskretna dolna plakietka stanu */}
                 <div className="absolute bottom-2.5 sm:bottom-3 inset-x-2.5 sm:inset-x-3 flex justify-center pointer-events-none z-10">
                   {isPlaying ? (
-                    <span className="px-3 py-1 rounded-full bg-granat/85 backdrop-blur-sm text-krem text-[10px] sm:text-[11px] font-medium shadow-md border border-krem/15 flex items-center gap-1.5 group-hover:bg-burgund transition-colors">
+                    <span className="px-3 py-1 rounded-full bg-granat/85 backdrop-blur-sm text-krem text-[11px] sm:text-[11px] font-medium shadow-md border border-krem/15 flex items-center gap-1.5 group-hover:bg-burgund transition-colors">
                       <Pause className="w-3 h-3 fill-krem" />
                       Kliknij, by zatrzymać na pytaniu
                     </span>
                   ) : (
-                    <span className="px-3 py-1 rounded-full bg-granat/90 backdrop-blur-sm text-krem text-[10px] sm:text-[11px] font-medium shadow-lg border border-krem/20 flex items-center gap-1.5 group-hover:bg-burgund transition-colors">
+                    <span className="px-3 py-1 rounded-full bg-granat/90 backdrop-blur-sm text-krem text-[11px] sm:text-[11px] font-medium shadow-lg border border-krem/20 flex items-center gap-1.5 group-hover:bg-burgund transition-colors">
                       <Play className="w-3 h-3 fill-krem" />
                       Kliknij, by losować dalej
                     </span>
@@ -234,61 +253,15 @@ export default function NewsletterHero() {
             </div>
 
             {/* Wskazówka pod wachlarzem */}
-            <p className="text-[11px] sm:text-xs text-granat/70 text-center mt-3 font-medium leading-relaxed max-w-sm">
+            <p className="text-[14px] sm:text-xs text-granat/70 text-center mt-2 font-medium leading-normal max-w-sm">
               👆 <strong>Wypróbuj teraz:</strong> Kliknij wideo w dowolnym momencie, aby zatrzymać na wylosowanym pytaniu!
             </p>
 
           </div>
 
-          {/* Kolumna z tekstem i CTA (Wyśrodkowana) */}
-          <div className="lg:col-span-6 flex flex-col items-center text-center z-10 order-1 lg:order-2">
-            
-            {/* Nagłówek H1 */}
-            <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-granat leading-[1.1] mb-2 text-center">
-              Stopklatki
-              <span className="block font-heading italic text-2xl sm:text-3xl md:text-4xl text-burgund font-normal mt-1.5 sm:mt-2">
-                Zrób pauzę na dobrą rozmowę
-              </span>
-            </h1>
-
-            {/* Wyjaśnienie / Lead */}
-            <div className="font-sans text-sm sm:text-base text-granat/85 leading-relaxed mt-4 mb-8 space-y-3 text-center max-w-lg">
-              <p>
-                Na co dzień rozmawiacie o zakupach, grafikach i tym, kto odbiera paczkę. Stopklatki pomagają wrócić do rozmów o was: o tym, co was cieszy, czego potrzebujecie i o czym marzycie.
-              </p>
-              <p>
-                Włączcie apkę, wybierzcie temat rozmowy, i wylosujcie pytanie, a potem porozmawiajcie. Tyle wystarczy, żeby znów się sobą zaciekawić.
-              </p>
-            </div>
-
-            {/* Główne CTA z ceną premierową (wyśrodkowane) */}
-            <div id="hero-cta" className="w-full sm:w-auto flex flex-col items-center text-center gap-3">
-              <div className="flex items-center justify-center gap-3">
-                <span className="text-xl sm:text-2xl text-granat/70 font-bold line-through decoration-rose-500 decoration-[2.5px]">
-                  67 zł
-                </span>
-                <span className="font-heading text-4xl sm:text-5xl font-extrabold text-emerald-600 tracking-tight">
-                  29 zł
-                </span>
-                <span className="text-xs font-bold uppercase tracking-wider text-emerald-700 bg-emerald-100/90 px-2.5 py-1 rounded-full border border-emerald-300/80 shadow-xs">
-                  Cena premierowa
-                </span>
-              </div>
-
-              <a
-                href={CHECKOUT_URL}
-                onClick={() => trackCtaClick("hero")}
-                className="w-full sm:w-auto inline-flex items-center justify-center rounded-2xl bg-burgund px-8 py-4 text-base sm:text-lg font-semibold text-krem shadow-lg hover:brightness-90 hover:shadow-xl transition-all duration-200 group"
-              >
-                Kupuję cały zestaw za 29 zł
-                <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
-              </a>
-
-              <p className="text-[11px] sm:text-xs text-granat/70 font-medium text-center">
-                Zaraz po płatności dostaniecie maila z dostępem i instrukcją.
-              </p>
-            </div>
-
+          {/* 3. Główne CTA z ceną premierową (Mobile: pozycja 3 zaraz pod wideo; Desktop: prawa strona, wiersz 2) */}
+          <div id="hero-cta" className="w-full sm:w-auto flex flex-col items-center text-center lg:col-span-6 lg:col-start-7 lg:row-start-2 lg:mt-2">
+            <BuyButton source="hero" mobileOnly={false} variant="light" />
           </div>
 
         </div>
