@@ -26,7 +26,7 @@ export default function Home() {
       {/* 2. Hero */}
       <NewsletterHero />
 
-      {/* 3. „Można żyć razem, ale obok siebie” (granat) */}
+      {/* 3. „Tęsknicie za sobą w zabieganej codzienności?” (granat) */}
       <DynamicTagline />
 
       {/* 4. „Co jest w środku” (krem) */}

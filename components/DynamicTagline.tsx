@@ -7,7 +7,7 @@ export default function DynamicTagline() {
         
         {/* Główny nagłówek */}
         <h2 className="font-heading text-[28px] sm:text-3xl md:text-4xl font-bold tracking-tight text-krem leading-tight mb-6 sm:mb-8">
-          Można żyć razem, ale obok siebie.
+          Tęsknicie za sobą w zabieganej codzienności?
         </h2>
 
         {/* Treść sekcji */}
